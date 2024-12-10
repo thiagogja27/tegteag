@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Teag R.O</title>
+
+    <!-- CSS do DataTables -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+    />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- JS do DataTables -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  </head>
+  <body>
+    <div id="sidebar" class="sidebar">
+      <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()"
+        >×</a
+      >
+      <a href="javascript:void(0)" onclick="openNaviosModal()">Navios</a>
+      <a href="javascript:void(0)" onclick="openCapacidadeModal()">Definir Capacidade Total</a>
+
+
+      <a href="javascript:void(0)" onclick="openPosicoesModal()">Posições</a>
+      <a href="javascript:void(0)" onclick="openChegadasModal()">Chegadas</a>
+      <!-- Botão para abrir o modal de capacidade total -->
+
+
+
+      <a href="#celulas">Células</a>
+      <a href="insert.html" class="back-btn">Voltar</a>
+    </div>
+
+    <!-- Botão para abrir a sidebar -->
+
+    <h1>Dashboard Teag R.O</h1>
+    <img src="img/teag.png" alt="Logo TEAG" class="logo-right" />
+    <style>
+      .logo-right {
+        position: fixed;
+        top: 50px; /* Ajuste a posição vertical */
+        right: 10px; /* Ajuste a posição horizontal */
+        z-index: 1000; /* Garante que fique acima de outros elementos */
+      }
+    </style>
+    <!-- Último Navio Acionado -->
+    <div id="ultimoNavio" style="margin-top: 20px; text-align: center">
+      <h3>Último Navio Acionado</h3>
+      <div
+        id="ultimoNavioInfo"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+        "
+      >
+        <!-- Conteúdo será preenchido dinamicamente -->
+      </div>
+    </div>
+
+    <button class="open-btn" onclick="openSidebar()">☰</button>
+
+    <div class="charts-container">
+      <!-- Gráfico de Movimentações -->
+      <div class="chart">
+        <canvas
+          id="graficoMovimentacoes"
+          width="800"
+          height="400"
+          style="max-width: 100%; max-height: 400px"
+        ></canvas>
+      </div>
+
+      <!-- Gráfico de Pizza -->
+      <div class="chart">
+        <canvas
+          id="graficoPizzaEmpresas"
+          style="max-width: 100%; max-height: 400px"
+        ></canvas>
+      </div>
+
+      <div class="chart">
+        <canvas
+          id="graficoEntradasSaidas"
+          width="800"
+          height="400"
+          style="max-width: 100%; max-height: 400px"
+        >
+        </canvas>
+      </div>
+      <div class="cube-container">
+        <div id="cuboCaminhoes" class="cube">
+          <h2>Caminhões</h2>
+          <span id="totalCaminhoes">0</span>
+        </div>
+        <div id="cuboVagoes" class="cube">
+          <h2>Vagões</h2>
+          <span id="totalVagoes">0</span>
+        </div>
+      </div>
+      
+    
+
+
+      
+      
+    <!-- Modal para Exibir Dados dos Navios -->
+    <div id="modalNavios" class="modal-navios">
+      <div class="modal-navios-content">
+        <h2>Dados dos Navios</h2>
+        <div class="table-navios-container">
+          <table id="tableNavios" class="display">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Nome do Navio</th>
+                <th>Atracação</th>
+                <th>Início</th>
+                <th>Talhe</th>
+                <th>Saída</th>
+                <th>Status</th>
+                <th>Ações</th>
+                <!-- Adicionado -->
+              </tr>
+            </thead>
+
+            <tbody></tbody>
+          </table>
+        </div>
+        <button onclick="closeNaviosModal()">Fechar</button>
+      </div>
+    </div>
+
+
+
+    <!-- Modal para Posições -->
+    <div id="posicoesModal" class="modal">
+      <div class="modal-content">
+        <h2>Posições</h2>
+        <table id="tablePosicoes" class="display">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Data/Hora</th>
+              <th>Ramal</th>
+              <th>Ferrovia</th>
+              <th>Quantidade</th>
+              <th>Tipo</th>
+              <th>Terminal</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <button onclick="closePosicoesModal()">Fechar</button>
+      </div>
+    </div>
+    <!-- Modal para Chegadas -->
+    <div id="chegadasModal" class="modal">
+      <div class="modal-content">
+        <h2>Chegadas</h2>
+        <table id="tableChegadas" class="display" style="width: 100%">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Data e Hora</th>
+              <th>Quantidade</th>
+              <th>Produto</th>
+              <th>Ferrovia</th>
+              <th>Empresa</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <button onclick="closeChegadasModal()">Fechar</button>
+      </div>
+    </div>
+
+    <!-- Tabela de Movimentações -->
+    <div id="movimentacoesSection" style="margin-top: 100px">
+      <h2>Movimentações Recentes</h2>
+      <table id="movimentacoesTable" class="display" style="width: 100%">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Produto</th>
+            <th>Empresa</th>
+            <th>Toneladas Vagão</th>
+            <th>Toneladas Caminhão</th>
+            <th>Qnt. Vagões</th>
+            <th>Qnt. Caminhões</th>
+            <th>Tipo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <!-- Modal para Edição -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <h2>Editar Movimentação</h2>
+        <form id="editForm">
+          <input type="hidden" id="editId" />
+
+          <label for="editData">Data:</label>
+          <input type="date" id="editData" required /><br /><br />
+
+          <label for="editProduto">Produto:</label>
+          <select id="editProduto" required>
+            <option value="">Selecione...</option>
+            <option value="Acucar">Açúcar</option>
+            <option value="Milho">Milho</option>
+            <option value="Soja">Soja</option>
+          </select>
+          <br /><br />
+
+          <label for="editEmpresa">Empresa:</label>
+          <select id="editEmpresa" required>
+            <option value="">Selecione...</option>
+            <option value="Raizen">Raizen</option>
+            <option value="LDC/Suisse">LDC/Suisse</option>
+            <option value="LDC/Brasil">LDC/Brasil</option>
+            <option value="LDC/Terceiros">LDC/Terceiros</option>
+            <option value="CARGIL">CARGIL</option>
+            <option value="CARGIL/TERCEIROS">CARGIL/TERCEIROS</option>
+          </select>
+          <br /><br />
+
+          <label for="editToneladasVagao">Toneladas Vagão:</label>
+          <input type="number" id="editToneladasVagao" /><br /><br />
+
+          <label for="editToneladasCaminhao">Toneladas Caminhão:</label>
+          <input type="number" id="editToneladasCaminhao" /><br /><br />
+
+          <label for="editQuantidadeVagoes">Quantidade Vagões:</label>
+          <input type="number" id="editQuantidadeVagoes" /><br /><br />
+
+          <label for="editQuantidadeCaminhoes">Quantidade Caminhões:</label>
+          <input type="number" id="editQuantidadeCaminhoes" /><br /><br />
+
+          <label for="editTipo">Tipo:</label>
+          <select id="editTipo" required>
+            <option value="">Selecione...</option>
+            <option value="Entrada">Entrada</option>
+            <option value="Saida">Saída</option>
+          </select>
+          <br /><br />
+
+          <button type="button" onclick="saveEdit()">Salvar</button>
+          <button type="button" onclick="closeModal()">Cancelar</button>
+        </form>
+      </div>
+    </div>
+<!-- Modal para Configurar a Capacidade Total -->
+<!-- Modal para inserir capacidade -->
+<div id="capacidadesModal" class="modal">
+  <div class="modal-content">
+    <h2>Configurar Capacidade Total</h2>
+    <form id="formCapacidades">
+      <label for="terminal">Terminal:</label>
+      <select id="terminal" required>
+        <option value="TEG">TEG</option>
+        <option value="TEAG">TEAG</option>
+      </select>
+      <br />
+
+      <label for="capacidadeTotal">Capacidade Total (toneladas):</label>
+      <input type="number" id="capacidadeTotal" required />
+      <br />
+
+      <label for="dataAtualizacao">Data/Hora:</label>
+      <input type="datetime-local" id="dataAtualizacao" required />
+      <br />
+
+      <button type="button" onclick="saveCapacidadeTotal()">Salvar</button>
+      <button type="button" onclick="closeCapacidadesModal()">Cancelar</button>
+    </form>
+  </div>
+</div>
+
+
+    <!-- Script do Dashboard -->
+    <script>
+      // Função para salvar a capacidade total
+function saveCapacidadeTotal() {
+    const capacidadeTotal = document.getElementById("capacidadeTotal").value;
+    const terminal = document.getElementById("terminal").value;
+    const dataAtualizacao = document.getElementById("dataAtualizacao").value;
+
+    if (!capacidadeTotal || !terminal || !dataAtualizacao) {
+        alert("Todos os campos são obrigatórios!");
+        return;
+    }
+
+    const data = {
+        terminal,
+        capacidade_total: capacidadeTotal,
+        data_atualizacao: dataAtualizacao
+    };
+
+    // Enviar os dados para o backend (ajuste conforme sua rota de API)
+    fetch("/capacidades", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("Capacidade adicionada com sucesso!");
+        closeCapacidadesModal();
+    })
+    .catch(error => {
+        console.error("Erro ao adicionar capacidade:", error);
+        alert("Erro ao adicionar capacidade.");
+    });
+}
+
+
+// Função para fechar o modal
+function closeCapacidadesModal() {
+    const modal = document.getElementById("capacidadesModal");
+    modal.style.display = "none";
+}
+
+      async function fetchMovimentacoes() {
+        try {
+          const response = await fetch("/movimentacoes");
+          const data = await response.json();
+
+          console.log("Dados recebidos do backend:", data);
+
+          // Validar dados recebidos
+          if (
+            !Array.isArray(data.groupedData) ||
+            data.groupedData.length === 0
+          ) {
+            console.error(
+              "groupedData está vazio ou não é um array:",
+              data.groupedData
+            );
+            return;
+          }
+
+          // Preencher a tabela
+          const tableBody = document.querySelector("#movimentacoesTable tbody");
+          tableBody.innerHTML = ""; // Limpar a tabela
+
+          data.allData.forEach((mov) => {
+            const row = `
+    <tr data-id="${mov.id}">
+      <td>${mov.data}</td>
+      <td>${mov.produto}</td>
+      <td>${mov.empresa}</td>
+      <td>${mov.toneladas_vagao || 0}</td>
+      <td>${mov.toneladas_caminhao || 0}</td>
+      <td>${mov.quantidade_vagoes || 0}</td>
+      <td>${mov.quantidade_caminhoes || 0}</td>
+      <td>${mov.tipo}</td>
+      <td>
+        <button onclick="openEditForm(${mov.id})">Editar</button>
+        <button onclick="deleteMovimentacao(${mov.id})">Excluir</button>
+      </td>
+    </tr>
+  `;
+            tableBody.innerHTML += row;
+          });
+
+          // Inicializar DataTables.js
+          $("#movimentacoesTable").DataTable();
+
+          // Renderizar o gráfico de barras (total de toneladas por produto)
+          const produtos = data.groupedData.map((item) => item.produto);
+          const totalToneladas = data.groupedData.map(
+            (item) => item.total_toneladas || 0
+          );
+
+          console.log("Produtos para o gráfico de barras:", produtos);
+          console.log(
+            "Total de toneladas para o gráfico de barras:",
+            totalToneladas
+          );
+
+          renderChart(
+            "graficoMovimentacoes",
+            "Movimentações por Produto",
+            produtos,
+            totalToneladas
+          );
+
+          // Renderizar o gráfico de pizza (toneladas por empresa)
+          const empresas = data.allData.reduce((acc, curr) => {
+            const totalToneladas =
+              (curr.toneladas_vagao || 0) + (curr.toneladas_caminhao || 0);
+            acc[curr.empresa] = (acc[curr.empresa] || 0) + totalToneladas;
+            return acc;
+          }, {});
+
+          renderPieChart(
+            "graficoPizzaEmpresas",
+            "Toneladas por Empresa",
+            Object.keys(empresas),
+            Object.values(empresas)
+          );
+        } catch (err) {
+          console.error("Erro ao carregar dados do dashboard:", err);
+        }
+      }
+
+      let chartInstance; // Variável para armazenar a instância do gráfico
+
+      function renderChart(canvasId, title, labels, totalToneladas) {
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext("2d");
+
+        // Garantir alta resolução para telas de alta densidade (exemplo: Retina)
+        const ratio = window.devicePixelRatio || 1;
+        canvas.width = 800 * ratio;
+        canvas.height = 400 * ratio;
+        canvas.style.width = "800px";
+        canvas.style.height = "400px";
+        ctx.scale(ratio, ratio);
+
+        // Criar o gráfico
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "Total de Toneladas",
+                data: totalToneladas,
+                backgroundColor: "rgba(75, 192, 192, 0.6)", // Verde
+
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "top",
+              },
+              title: {
+                display: true,
+                text: title,
+              },
+            },
+            scales: {
+              x: {
+                title: { display: true, text: "Produto" },
+              },
+              y: {
+                title: { display: true, text: "Toneladas" },
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      }
+
+      let pieChartInstance; // Variável para armazenar a instância do gráfico de pizza
+
+      function renderPieChart(canvasId, title, labels, data) {
+        const ctx = document.getElementById(canvasId).getContext("2d");
+
+        // Destruir o gráfico anterior, se existir
+        if (pieChartInstance) {
+          pieChartInstance.destroy();
+        }
+
+        // Criar um novo gráfico e armazenar a instância
+        pieChartInstance = new Chart(ctx, {
+          type: "pie",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                data: data,
+                backgroundColor: [
+                  "#FF6384", // Vermelho
+                  "#36A2EB", // Azul
+                  "#FFCE56", // Amarelo
+                  "#4BC0C0", // Turquesa
+                  "#9966FF", // Roxo
+                  "#FF9F40", // Laranja
+                ],
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: "top",
+              },
+              title: {
+                display: true,
+                text: title,
+              },
+            },
+          },
+        });
+      }
+
+      async function renderEntradasSaidasChart() {
+        try {
+          const response = await fetch("/movimentacoes");
+          const data = await response.json();
+
+          // Processar os dados agrupando por empresa
+          const empresas = [];
+          const entradas = [];
+          const saidas = [];
+
+          data.allData.forEach((mov) => {
+            if (!empresas.includes(mov.empresa)) {
+              empresas.push(mov.empresa);
+              entradas.push(0);
+              saidas.push(0);
+            }
+
+            const index = empresas.indexOf(mov.empresa);
+            if (mov.tipo === "Entrada") {
+              entradas[index] +=
+                (mov.toneladas_vagao || 0) + (mov.toneladas_caminhao || 0);
+            } else if (mov.tipo === "Saida") {
+              saidas[index] +=
+                (mov.toneladas_vagao || 0) + (mov.toneladas_caminhao || 0);
+            }
+          });
+
+          // Configuração do gráfico
+          const ctx = document
+            .getElementById("graficoEntradasSaidas")
+            .getContext("2d");
+
+          new Chart(ctx, {
+            type: "bar",
+            data: {
+              labels: empresas,
+              datasets: [
+                {
+                  label: "Entradas (toneladas)",
+                  data: entradas,
+                  backgroundColor: "rgba(75, 192, 192, 0.6)", // Verde
+                },
+                {
+                  label: "Saídas (toneladas)",
+                  data: saidas,
+                  backgroundColor: "rgba(255, 99, 132, 0.6)", // Vermelho
+                },
+              ],
+            },
+            options: {
+              responsive: true, // Responsivo
+              maintainAspectRatio: false, // Permitir ajuste manual da relação de aspecto
+              devicePixelRatio: window.devicePixelRatio || 1, // Considerar alta densidade
+              plugins: {
+                legend: {
+                  position: "top",
+                },
+                title: {
+                  display: true,
+                  text: "Entradas e Saídas por Empresa",
+                },
+              },
+              scales: {
+                x: {
+                  title: {
+                    display: true,
+                    text: "Empresas",
+                  },
+                },
+                y: {
+                  title: {
+                    display: true,
+                    text: "Toneladas",
+                  },
+                  beginAtZero: true,
+                },
+              },
+            },
+          });
+        } catch (err) {
+          console.error(
+            "Erro ao carregar dados para gráfico de entradas e saídas:",
+            err
+          );
+        }
+      }
+
+      // Chamar a função ao carregar a página
+      renderEntradasSaidasChart();
+
+      async function deleteMovimentacao(id) {
+        try {
+          const response = await fetch(`/movimentacoes/${id}`, {
+            method: "DELETE",
+          });
+
+          if (response.ok) {
+            alert("Movimentação excluída com sucesso!");
+            fetchMovimentacoes(); // Atualizar a tabela
+          } else {
+            alert("Erro ao excluir movimentação.");
+          }
+        } catch (err) {
+          console.error("Erro ao excluir movimentação:", err);
+        }
+      }
+
+      function openEditForm(id) {
+        const modal = document.getElementById("editModal");
+        modal.style.display = "block";
+
+        // Encontrar a linha correta na tabela usando o atributo `data-id`
+        const row = document.querySelector(
+          `#movimentacoesTable tbody tr[data-id="${id}"]`
+        );
+
+        if (!row) {
+          console.error(`Linha com ID ${id} não encontrada.`);
+          return;
+        }
+
+        const cells = row.children; // Obter as células da linha
+
+        // Preencher os campos do modal com os valores das células
+        document.getElementById("editId").value = id;
+        document.getElementById("editData").value = cells[0].textContent.trim();
+        document.getElementById("editProduto").value =
+          cells[1].textContent.trim();
+        document.getElementById("editEmpresa").value =
+          cells[2].textContent.trim();
+        document.getElementById("editToneladasVagao").value =
+          cells[3].textContent.trim();
+        document.getElementById("editToneladasCaminhao").value =
+          cells[4].textContent.trim();
+        document.getElementById("editQuantidadeVagoes").value =
+          cells[5].textContent.trim();
+        document.getElementById("editQuantidadeCaminhoes").value =
+          cells[6].textContent.trim();
+        document.getElementById("editTipo").value = cells[7].textContent.trim();
+      }
+
+      async function saveEdit() {
+        const id = document.getElementById("editId").value;
+
+        const tipo = document.getElementById("editTipo").value;
+        const toneladasVagao = parseFloat(
+          document.getElementById("editToneladasVagao").value
+        );
+        const toneladasCaminhao = parseFloat(
+          document.getElementById("editToneladasCaminhao").value
+        );
+        const quantidadeVagoes = parseInt(
+          document.getElementById("editQuantidadeVagoes").value
+        );
+        const quantidadeCaminhoes = parseInt(
+          document.getElementById("editQuantidadeCaminhoes").value
+        );
+
+        // Validação para evitar valores negativos ou inválidos
+        if (
+          (toneladasVagao <= 0 && toneladasCaminhao <= 0) ||
+          isNaN(toneladasVagao) ||
+          isNaN(toneladasCaminhao) ||
+          quantidadeVagoes < 0 ||
+          quantidadeCaminhoes < 0
+        ) {
+          alert("Valores inválidos. Por favor, revise os campos.");
+          return;
+        }
+
+        const data = {
+          data: document.getElementById("editData").value,
+          produto: document.getElementById("editProduto").value,
+          empresa: document.getElementById("editEmpresa").value,
+          toneladas_vagao: tipo === "Saida" ? -toneladasVagao : toneladasVagao, // Ajustar valor de acordo com o tipo
+          toneladas_caminhao:
+            tipo === "Saida" ? -toneladasCaminhao : toneladasCaminhao,
+          quantidade_vagoes: quantidadeVagoes,
+          quantidade_caminhoes: quantidadeCaminhoes,
+          tipo: tipo,
+        };
+
+        console.log("Enviando dados editados:", data);
+
+        try {
+          const response = await fetch(`/movimentacoes/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (response.ok) {
+            alert("Movimentação atualizada com sucesso!");
+            fetchMovimentacoes(); // Atualizar a tabela
+            closeModal(); // Fechar o modal
+          } else {
+            alert("Erro ao salvar movimentação editada.");
+          }
+        } catch (err) {
+          console.error("Erro ao salvar movimentação editada:", err);
+        }
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("editModal");
+        modal.style.display = "none";
+      }
+
+      // Função para carregar movimentações ao carregar a página
+      fetchMovimentacoes();
+
+      // Funções para abrir e fechar a sidebar
+      function openSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.style.width = "250px";
+
+        const mainContent = document.getElementById("main");
+        if (mainContent) {
+          mainContent.style.marginLeft = "250px";
+        }
+      }
+
+      function closeSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.style.width = "0";
+
+        const mainContent = document.getElementById("main");
+        if (mainContent) {
+          mainContent.style.marginLeft = "0";
+        }
+      }
+
+      function openCapacidadeModal() {
+  const modal = document.getElementById("capacidadesModal");
+  modal.style.display = "block"; // Exibe o modal
+}
+
+function fecharCapacidadeModal() {
+  const modal = document.getElementById("capacidadesModal");
+  modal.style.display = "none"; // Fecha o modal
+}
+
+
+function salvarCapacidadeTotal() {
+  const capacidadeTotal = parseFloat(document.getElementById("capacidadeTotal").value);
+
+  // Validação de entrada
+  if (isNaN(capacidadeTotal) || capacidadeTotal <= 0) {
+    alert("Por favor, insira um valor válido para a capacidade total.");
+    return;
+  }
+
+  // Enviar para o backend para salvar no banco de dados
+  fetch('/capacidades', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      terminal: 'Geral', // ou outro valor, dependendo de sua lógica
+      capacidade_total: capacidadeTotal,
+      capacidade_utilizada: 0,  // Inicialmente, a capacidade utilizada é 0
+      produto: null, // Pode ser nulo ou um valor se desejado
+      data_atualizacao: new Date().toISOString()  // A data da atualização
+    })
+  })
+  .then(response => response.json())  // Certifique-se de chamar .json() na resposta
+  .then(data => {
+    if (data.success) {
+      alert(data.message);  // Mensagem de sucesso ou erro do backend
+      fecharCapacidadeModal(); // Fechar o modal após salvar
+    } else {
+      alert(data.message);  // Mensagem de erro caso o backend retorne falha
+    }
+  })
+  .catch(error => {
+    console.error("Erro ao enviar dados para o servidor:", error);
+    alert("Erro ao salvar capacidade total.");
+  });
+}
+
+
+      function openNaviosModal() {
+        const modal = document.getElementById("modalNavios");
+        modal.style.display = "block";
+
+        fetchNaviosData(); // Carregar os dados dos navios
+      }
+
+      function closeNaviosModal() {
+        const modal = document.getElementById("modalNavios");
+        modal.style.display = "none";
+      }
+
+      async function fetchNaviosData() {
+        try {
+          const response = await fetch("/navios");
+          const data = await response.json();
+
+          console.log("Dados dos navios recebidos:", data);
+
+          const tableBody = document.querySelector("#tableNavios tbody");
+          tableBody.innerHTML = ""; // Limpa a tabela antes de atualizá-la
+
+          data.forEach((navio) => {
+            const row = `
+                <tr data-id="${navio.Id}" data-original='${JSON.stringify(
+              navio
+            )}'>
+                    <td>${navio.Id}</td>
+                    <td>
+                        <input type="datetime-local" value="${convertToInputFormat(
+                          navio.Data
+                        )}" disabled />
+                    </td>
+                    <td contenteditable="false">${navio.NomeNavio}</td>
+                    <td>
+                        <input type="datetime-local" value="${convertToInputFormat(
+                          navio.Atracacao
+                        )}" disabled />
+                    </td>
+                    <td>
+                        <input type="datetime-local" value="${convertToInputFormat(
+                          navio.Inicio
+                        )}" disabled />
+                    </td>
+                    <td>
+                        <input type="datetime-local" value="${convertToInputFormat(
+                          navio.Talhe
+                        )}" disabled />
+                    </td>
+                    <td>
+                        <input type="datetime-local" value="${convertToInputFormat(
+                          navio.Saida
+                        )}" disabled />
+                    </td>
+                    <td>
+                        <select disabled>
+                            <option value="Operando" ${
+                              navio.Status === "Operando" ? "selected" : ""
+                            }>Operando</option>
+                            <option value="Sem Operar" ${
+                              navio.Status === "Sem Operar" ? "selected" : ""
+                            }>Sem Operar</option>
+                            <option value="Aguardando" ${
+                              navio.Status === "Aguardando" ? "selected" : ""
+                            }>Aguardando</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button onclick="editNavio(${navio.Id})">Editar</button>
+                        <button onclick="saveNavio(${
+                          navio.Id
+                        })" style="display:none;">Salvar</button>
+                        <button onclick="cancelEditNavio(${
+                          navio.Id
+                        })" style="display:none;">Cancelar</button>
+
+                        <button onclick="deleteNavio(${
+                          navio.Id
+                        })">Excluir</button>
+                    </td>
+                </tr>
+            `;
+            tableBody.innerHTML += row;
+          });
+
+          // Reaplica o DataTables.js
+          if ($.fn.DataTable.isDataTable("#tableNavios")) {
+            $("#tableNavios").DataTable().destroy();
+          }
+          $("#tableNavios").DataTable();
+        } catch (err) {
+          console.error("Erro ao carregar dados dos navios:", err);
+        }
+      }
+
+      function editNavio(id) {
+        const row = document.querySelector(`tr[data-id="${id}"]`);
+        const inputs = row.querySelectorAll("input");
+        const select = row.querySelector("select");
+        const nomeNavio = row.querySelector("td:nth-child(3)");
+
+        // Ativar edição
+        inputs.forEach((input) => (input.disabled = false));
+        select.disabled = false;
+        nomeNavio.contentEditable = "true";
+
+        row.querySelector("button[onclick^='editNavio']").style.display =
+          "none";
+        row.querySelector("button[onclick^='saveNavio']").style.display =
+          "inline";
+        row.querySelector("button[onclick^='cancelEdit']").style.display =
+          "inline";
+      }
+
+      function cancelEditNavio(id) {
+        const row = document.querySelector(`tr[data-id="${id}"]`);
+        const originalData = JSON.parse(row.getAttribute("data-original")); // Recupera os valores originais
+        const inputs = row.querySelectorAll("input");
+        const select = row.querySelector("select");
+        const nomeNavio = row.querySelector("td:nth-child(3)"); // Campo NomeNavio
+
+        // Restaurar valores originais
+        inputs[0].value = convertToInputFormat(originalData.Data); // Data
+        inputs[1].value = convertToInputFormat(originalData.Atracacao); // Atracação
+        inputs[2].value = convertToInputFormat(originalData.Inicio); // Início
+        inputs[3].value = convertToInputFormat(originalData.Talhe); // Talhe
+        inputs[4].value = convertToInputFormat(originalData.Saida); // Saída
+        select.value = originalData.Status; // Status
+        nomeNavio.textContent = originalData.NomeNavio; // Nome do Navio
+
+        // Desativar edição
+        inputs.forEach((input) => (input.disabled = true));
+        select.disabled = true;
+
+        // Restaurar visibilidade dos botões
+        row.querySelector("button[onclick^='editNavio']").style.display =
+          "inline"; // Mostrar botão Editar
+        row.querySelector("button[onclick^='saveNavio']").style.display =
+          "none"; // Esconder botão Salvar
+        row.querySelector("button[onclick^='cancelEditNavio']").style.display =
+          "none"; // Esconder botão Cancelar
+      }
+
+      async function saveNavio(id) {
+        const row = document.querySelector(`tr[data-id="${id}"]`);
+        const inputs = row.querySelectorAll("input");
+        const select = row.querySelector("select");
+        const nomeNavio = row.querySelector("td:nth-child(3)"); // Campo editável
+
+        // Capturar os valores atualizados dos campos
+        const updatedData = {
+          id: id,
+          data: inputs[0]?.value, // Data
+          nome_navio: nomeNavio?.textContent.trim(), // Nome do navio (campo editável)
+          atracacao: inputs[1]?.value, // Atracação
+          inicio: inputs[2]?.value, // Início
+          talhe: inputs[3]?.value, // Talhe
+          saida: inputs[4]?.value, // Saída
+          status: select?.value, // Status
+        };
+
+        console.log("Dados a serem enviados para atualização:", updatedData);
+
+        // Verificar se há algum valor indefinido
+        if (
+          !updatedData.data ||
+          !updatedData.nome_navio ||
+          !updatedData.atracacao ||
+          !updatedData.inicio ||
+          !updatedData.talhe ||
+          !updatedData.saida ||
+          !updatedData.status
+        ) {
+          alert("Todos os campos são obrigatórios.");
+          return;
+        }
+
+        try {
+          const response = await fetch(`/navios/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedData),
+          });
+
+          const result = await response.json();
+          console.log("Resposta do servidor ao salvar navio:", result);
+
+          if (response.ok) {
+            alert("Navio atualizado com sucesso!");
+            fetchNaviosData(); // Atualizar a tabela após salvar
+          } else {
+            alert("Erro ao salvar navio: " + result.message);
+          }
+        } catch (err) {
+          console.error("Erro ao salvar navio:", err);
+        }
+      }
+
+      async function deleteNavio(id) {
+        if (!confirm("Tem certeza que deseja excluir este navio?")) return;
+
+        try {
+          const response = await fetch(`/navios/${id}`, {
+            method: "DELETE",
+          });
+
+          if (response.ok) {
+            alert("Navio excluído com sucesso!");
+            fetchNaviosData(); // Atualizar a tabela após exclusão
+          } else {
+            alert("Erro ao excluir navio.");
+          }
+        } catch (err) {
+          console.error("Erro ao excluir navio:", err);
+        }
+      }
+
+      // Função para converter a data do formato SQL para o formato datetime-local
+      function convertToInputFormat(dateString) {
+        return moment(dateString).format("YYYY-MM-DDTHH:mm");
+      }
+
+      async function fetchUltimoNavio() {
+        try {
+          const response = await fetch("/navios"); // Rota GET para obter os navios
+          const data = await response.json();
+
+          if (data.length === 0) {
+            console.warn("Nenhum navio encontrado.");
+            return;
+          }
+
+          // Obter o último navio (último da lista)
+          const ultimoNavio = data[data.length - 1];
+
+          // Atualizar a seção do último navio
+          const navioInfoDiv = document.getElementById("ultimoNavioInfo");
+          navioInfoDiv.innerHTML = `
+      <img src="img/images.png" alt="Bandeira do Brasil" />
+      <span>Navio: ${ultimoNavio.NomeNavio}</span>
+      <span>Status: ${ultimoNavio.Status}</span>
+    `;
+        } catch (err) {
+          console.error("Erro ao buscar o último navio:", err);
+        }
+      }
+
+      // Carregar os dados do último navio ao carregar a página
+      fetchUltimoNavio();
+      function openPosicoesModal() {
+        const modal = document.getElementById("posicoesModal");
+        modal.style.display = "block";
+
+        fetchPosicoesData(); // Carregar dados das posições ao abrir o modal
+      }
+
+      function closePosicoesModal() {
+        const modal = document.getElementById("posicoesModal");
+        modal.style.display = "none";
+      }
+
+      async function fetchPosicoesData() {
+        try {
+          const response = await fetch("/posicoes"); // Rota GET para buscar posições
+          const data = await response.json();
+
+          console.log("Dados de posições recebidos:", data);
+
+          // Preencher a tabela
+          const tableBody = document.querySelector("#tablePosicoes tbody");
+          tableBody.innerHTML = ""; // Limpar a tabela
+
+          data.forEach((posicao) => {
+            const row = `
+                <tr data-id="${posicao.ID}" data-original='${JSON.stringify(
+              posicao
+            )}'>
+                    <td>${posicao.ID}</td>
+                    <td contenteditable="false">${posicao.DataHora}</td>
+                    <td contenteditable="false">${posicao.Ramal}</td>
+                    <td contenteditable="false">${posicao.Ferrovia}</td>
+                    <td contenteditable="false">${posicao.Quantidade}</td>
+                    <td contenteditable="false">${posicao.Tipo}</td>
+                    <td contenteditable="false">${posicao.Terminal}</td>
+                    <td>
+                        <button onclick="editPosicao(${
+                          posicao.ID
+                        })">Editar</button>
+                        <button onclick="savePosicao(${
+                          posicao.ID
+                        })" style="display:none;">Salvar</button>
+                        <button onclick="cancelEdit(${
+                          posicao.ID
+                        })" style="display:none;">Cancelar</button>
+                        <button onclick="deletePosicao(${
+                          posicao.ID
+                        })">Excluir</button>
+                    </td>
+                </tr>
+            `;
+            tableBody.innerHTML += row;
+          });
+
+          // Reaplicar o DataTables.js
+          $("#tablePosicoes").DataTable(); // Atualiza o DataTables diretamente
+        } catch (err) {
+          console.error("Erro ao carregar dados de posições:", err);
+          alert(
+            "Erro ao carregar dados de posições. Tente novamente mais tarde."
+          );
+        }
+      }
+
+      function editPosicao(id) {
+        const row = document.querySelector(
+          `#tablePosicoes tr[data-id="${id}"]`
+        );
+        const cells = row.querySelectorAll("td");
+
+        // Substituir campos por selects para edição
+        const ramalSelect = `
+    <select>
+      <option value="100" ${
+        cells[2].textContent.trim() === "100" ? "selected" : ""
+      }>100</option>
+      <option value="200" ${
+        cells[2].textContent.trim() === "200" ? "selected" : ""
+      }>200</option>
+      <option value="300" ${
+        cells[2].textContent.trim() === "300" ? "selected" : ""
+      }>300</option>
+    </select>`;
+        cells[2].innerHTML = ramalSelect;
+
+        const ferroviaSelect = `
+    <select>
+      <option value="Rumo" ${
+        cells[3].textContent.trim() === "Rumo" ? "selected" : ""
+      }>Rumo</option>
+      <option value="MRS" ${
+        cells[3].textContent.trim() === "MRS" ? "selected" : ""
+      }>MRS</option>
+      <option value="VLI" ${
+        cells[3].textContent.trim() === "VLI" ? "selected" : ""
+      }>VLI</option>
+    </select>`;
+        cells[3].innerHTML = ferroviaSelect;
+
+        const tipoSelect = `
+    <select>
+      <option value="BL" ${
+        cells[5].textContent.trim() === "BL" ? "selected" : ""
+      }>BL</option>
+      <option value="BE" ${
+        cells[5].textContent.trim() === "BE" ? "selected" : ""
+      }>BE</option>
+    </select>`;
+        cells[5].innerHTML = tipoSelect;
+
+        const terminalSelect = `
+    <select>
+      <option value="TEG" ${
+        cells[6].textContent.trim() === "TEG" ? "selected" : ""
+      }>TEG</option>
+      <option value="TEAG" ${
+        cells[6].textContent.trim() === "TEAG" ? "selected" : ""
+      }>TEAG</option>
+    </select>`;
+        cells[6].innerHTML = terminalSelect;
+
+        // Mostrar botões de salvar e cancelar
+        const buttons = row.querySelectorAll("button");
+        buttons[0].style.display = "none"; // Esconder "Editar"
+        buttons[1].style.display = "inline"; // Mostrar "Salvar"
+        buttons[2].style.display = "inline"; // Mostrar "Cancelar"
+      }
+
+      function cancelEdit(id) {
+        const row = document.querySelector(
+          `#tablePosicoes tr[data-id="${id}"]`
+        );
+        const originalData = JSON.parse(row.getAttribute("data-original"));
+        const cells = row.querySelectorAll("td");
+
+        // Restaurar valores originais
+        cells[1].textContent = originalData.DataHora;
+        cells[2].textContent = originalData.Ramal;
+        cells[3].textContent = originalData.Ferrovia;
+        cells[4].textContent = originalData.Quantidade;
+        cells[5].textContent = originalData.Tipo;
+        cells[6].textContent = originalData.Terminal;
+
+        // Reexibir botão "Editar" e esconder "Salvar" e "Cancelar"
+        const buttons = row.querySelectorAll("button");
+        buttons[0].style.display = "inline"; // Mostrar "Editar"
+        buttons[1].style.display = "none"; // Esconder "Salvar"
+        buttons[2].style.display = "none"; // Esconder "Cancelar"
+      }
+
+      async function savePosicao(id) {
+        const row = document.querySelector(
+          `#tablePosicoes tr[data-id="${id}"]`
+        );
+        const cells = row.querySelectorAll("td");
+
+        const data = {
+          id: id,
+          dataHora: cells[1].textContent.trim(),
+          ramal: cells[2].querySelector("select").value,
+          ferrovia: cells[3].querySelector("select").value,
+          quantidade: parseInt(cells[4].textContent.trim(), 10),
+          tipo: cells[5].querySelector("select").value,
+          terminal: cells[6].querySelector("select").value,
+        };
+
+        console.log("Salvando posição editada:", data);
+
+        try {
+          const response = await fetch(`/posicoes/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (response.ok) {
+            alert("Posição salva com sucesso!");
+            fetchPosicoesData(); // Atualizar os dados na tabela
+          } else {
+            alert("Erro ao salvar posição.");
+          }
+        } catch (err) {
+          console.error("Erro ao salvar posição:", err);
+        }
+      }
+
+      async function deletePosicao(id) {
+        try {
+          const confirmDelete = confirm(
+            "Tem certeza de que deseja excluir esta posição?"
+          );
+          if (!confirmDelete) return;
+
+          const response = await fetch(`/posicoes/${id}`, {
+            method: "DELETE",
+          });
+
+          if (response.ok) {
+            alert("Posição excluída com sucesso!");
+            await fetchPosicoesData(); // Atualizar a tabela imediatamente
+          } else {
+            const error = await response.json();
+            alert(
+              `Erro ao excluir a posição: ${
+                error.message || "Erro desconhecido."
+              }`
+            );
+          }
+        } catch (err) {
+          console.error("Erro ao excluir posição:", err);
+          alert("Erro ao excluir posição. Tente novamente mais tarde.");
+        }
+      }
+      function openChegadasModal() {
+        const modal = document.getElementById("chegadasModal");
+        modal.style.display = "block";
+        fetchChegadasData(); // Carrega os dados das chegadas
+      }
+
+      function closeChegadasModal() {
+        const modal = document.getElementById("chegadasModal");
+        modal.style.display = "none";
+      }
+
+      async function fetchChegadasData() {
+        try {
+          const response = await fetch("/chegadas");
+          const data = await response.json();
+
+          console.log("Dados de chegadas recebidos:", data);
+
+          const tableBody = document.querySelector("#tableChegadas tbody");
+          tableBody.innerHTML = ""; // Limpa a tabela antes de preenchê-la
+
+          data.forEach((chegada) => {
+            const row = `
+        <tr data-id="${chegada.ID}">
+          <td>${chegada.ID}</td>
+          <td>${chegada.DataHora}</td>
+          <td>${chegada.Quantidade}</td>
+          <td>${chegada.Produto}</td>
+          <td>${chegada.Ferrovia}</td>
+          <td>${chegada.Empresa}</td>
+          <td>
+            <button onclick="editChegada(${chegada.ID})">Editar</button>
+            <button onclick="deleteChegada(${chegada.ID})">Excluir</button>
+          </td>
+        </tr>
+      `;
+            tableBody.innerHTML += row;
+          });
+
+          // Inicializa ou reativa o DataTables.js
+          if ($.fn.DataTable.isDataTable("#tableChegadas")) {
+            $("#tableChegadas").DataTable().destroy();
+          }
+          $("#tableChegadas").DataTable();
+        } catch (err) {
+          console.error("Erro ao carregar chegadas:", err);
+        }
+      }
+      function editChegada(id) {
+        const row = document.querySelector(
+          `#tableChegadas tr[data-id="${id}"]`
+        );
+        const cells = row.querySelectorAll("td");
+
+        // Armazenar os valores originais
+        cells[1].setAttribute("data-original", cells[1].textContent.trim());
+        cells[2].setAttribute("data-original", cells[2].textContent.trim());
+        cells[3].setAttribute("data-original", cells[3].textContent.trim());
+        cells[4].setAttribute("data-original", cells[4].textContent.trim());
+        cells[5].setAttribute("data-original", cells[5].textContent.trim());
+
+        // Transformar a célula DataHora em um campo datetime-local
+        cells[1].innerHTML = `<input type="datetime-local" value="${cells[1].textContent.trim()}" />`;
+
+        // Transformar a célula Quantidade em um campo numérico
+        cells[2].innerHTML = `<input type="number" value="${cells[2].textContent.trim()}" />`;
+
+        // Campo Produto com Select
+        cells[3].innerHTML = `
+    <select>
+      <option value="Acucar" ${
+        cells[3].textContent.trim() === "Acucar" ? "selected" : ""
+      }>Açúcar</option>
+      <option value="Milho" ${
+        cells[3].textContent.trim() === "Milho" ? "selected" : ""
+      }>Milho</option>
+      <option value="Soja" ${
+        cells[3].textContent.trim() === "Soja" ? "selected" : ""
+      }>Soja</option>
+    </select>
+  `;
+
+        // Campo Ferrovia com Select
+        cells[4].innerHTML = `
+    <select>
+      <option value="Rumo" ${
+        cells[4].textContent.trim() === "Rumo" ? "selected" : ""
+      }>Rumo</option>
+      <option value="MRS" ${
+        cells[4].textContent.trim() === "MRS" ? "selected" : ""
+      }>MRS</option>
+      <option value="VLI" ${
+        cells[4].textContent.trim() === "VLI" ? "selected" : ""
+      }>VLI</option>
+    </select>
+  `;
+
+        // Campo Empresa com Select
+        cells[5].innerHTML = `
+    <select>
+      <option value="Raizen" ${
+        cells[5].textContent.trim() === "Raizen" ? "selected" : ""
+      }>Raizen</option>
+      <option value="LDC" ${
+        cells[5].textContent.trim() === "LDC" ? "selected" : ""
+      }>LDC</option>
+      <option value="LDC/Suisse" ${
+        cells[5].textContent.trim() === "LDC/Suisse" ? "selected" : ""
+      }>LDC/Suisse</option>
+      <option value="LDC/TERCEIROS" ${
+        cells[5].textContent.trim() === "LDC/TERCEIROS" ? "selected" : ""
+      }>LDC/TERCEIROS</option>
+      <option value="CARGIL" ${
+        cells[5].textContent.trim() === "CARGIL" ? "selected" : ""
+      }>CARGIL</option>
+      <option value="CARGIL/TERCEIROS" ${
+        cells[5].textContent.trim() === "CARGIL/TERCEIROS" ? "selected" : ""
+      }>CARGIL/TERCEIROS</option>
+    </select>
+  `;
+
+        // Substituir os botões
+        cells[6].innerHTML = `
+    <button onclick="saveChegada(${id})">Salvar</button>
+    <button onclick="cancelEditChegada(${id})">Cancelar</button>
+  `;
+      }
+
+      function cancelEditChegada(id) {
+        const row = document.querySelector(
+          `#tableChegadas tr[data-id="${id}"]`
+        );
+        const cells = row.querySelectorAll("td");
+
+        // Restaurar os valores originais
+        cells[1].textContent = cells[1].getAttribute("data-original");
+        cells[2].textContent = cells[2].getAttribute("data-original");
+        cells[3].textContent = cells[3].getAttribute("data-original");
+        cells[4].textContent = cells[4].getAttribute("data-original");
+        cells[5].textContent = cells[5].getAttribute("data-original");
+
+        // Restaurar os botões para o estado inicial
+        cells[6].innerHTML = `
+    <button onclick="editChegada(${id})">Editar</button>
+    <button onclick="deleteChegada(${id})">Excluir</button>
+  `;
+      }
+
+      async function saveChegada(id) {
+        const row = document.querySelector(
+          `#tableChegadas tr[data-id="${id}"]`
+        );
+        const cells = row.querySelectorAll("td");
+
+        const data = {
+          dataHora: cells[1].querySelector("input").value,
+          quantidade: parseInt(cells[2].querySelector("input").value),
+          produto: cells[3].querySelector("select").value, // Captura o valor selecionado do select
+          ferrovia: cells[4].querySelector("select").value, // Captura o valor selecionado do select
+          empresa: cells[5].querySelector("select").value, // Captura o valor selecionado do select
+        };
+
+        try {
+          const response = await fetch(`/chegadas/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (response.ok) {
+            alert("Chegada atualizada com sucesso!");
+            fetchChegadasData(); // Atualiza a tabela após salvar
+          } else {
+            alert("Erro ao atualizar chegada.");
+          }
+        } catch (err) {
+          console.error("Erro ao salvar chegada:", err);
+        }
+      }
+
+
+// Função para sal
+
+
+// Função para salvar a capacidade total
+
+
+ 
+      async function atualizarCaminhoesEVagoes() {
+  try {
+    const response = await fetch("/movimentacoes");
+    const data = await response.json();
+
+    let totalCaminhoes = 0;
+    let totalVagoes = 0;
+
+    // Calcular o total de caminhões e vagões
+    data.allData.forEach((mov) => {
+      totalCaminhoes += mov.quantidade_caminhoes || 0; // Somar a quantidade de caminhões
+      totalVagoes += mov.quantidade_vagoes || 0; // Somar a quantidade de vagões
+    });
+
+    // Atualizar os cubos de Caminhões e Vagões
+    document.getElementById("totalCaminhoes").textContent = totalCaminhoes;
+    document.getElementById("totalVagoes").textContent = totalVagoes;
+
+  } catch (err) {
+    console.error("Erro ao atualizar Caminhões e Vagões:", err);
+  }
+  
+}
+
+window.onload = async function() {
+  await atualizarCaminhoesEVagoes(); // Atualizar os cubos de Caminhões e Vagões
+};
+
+function animarContagem(elementId, start, end, duration) {
+  const elemento = document.getElementById(elementId);
+  const range = end - start;
+  const increment = range / (duration / 20); // Define a velocidade de incremento
+  let current = start;
+
+  const timer = setInterval(() => {
+    current += increment;
+    if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+      current = end;
+      clearInterval(timer);
+    }
+    elemento.textContent = Math.floor(current); // Atualiza a contagem no cubo
+  }, 20);
+}
+async function atualizarCaminhoesEVagoes() {
+  try {
+    const response = await fetch("/movimentacoes");
+    const data = await response.json();
+
+    let totalCaminhoes = 0;
+    let totalVagoes = 0;
+
+    // Calcular o total de caminhões e vagões
+    data.allData.forEach((mov) => {
+      totalCaminhoes += mov.quantidade_caminhoes || 0;
+      totalVagoes += mov.quantidade_vagoes || 0;
+    });
+
+    // Animar os valores nos cubos de Caminhões e Vagões
+    animarContagem("totalCaminhoes", 0, totalCaminhoes, 2000); // 2 segundos
+    animarContagem("totalVagoes", 0, totalVagoes, 2000); // 2 segundos
+
+  } catch (err) {
+    console.error("Erro ao atualizar Caminhões e Vagões:", err);
+  }
+}
+
+
+    </script>
+
+    <!-- Estilo inline para Modal -->
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        border-radius: 8px;
+      }
+
+      .modal-content h2 {
+        margin-top: 0;
+        text-align: center;
+        color: #333;
+      }
+
+      .modal-content form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .modal-content form label {
+        font-weight: bold;
+      }
+
+      .modal-content form input {
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .modal-content form button {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .modal-content form button[type="button"]:first-child {
+        background-color: #28a745;
+        color: #fff;
+      }
+
+      .modal-content form button[type="button"]:first-child:hover {
+        background-color: #218838;
+      }
+
+      .modal-content form button[type="button"]:last-child {
+        background-color: #dc3545;
+        color: #fff;
+      }
+
+      .modal-content form button[type="button"]:last-child:hover {
+        background-color: #c82333;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 8px;
+      }
+
+      .modal-content h2 {
+        margin-top: 0;
+        text-align: center;
+        color: #333;
+      }
+
+      .modal-content table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .modal-content table th,
+      .modal-content table td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+
+      .modal-content button {
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .modal-content button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Estilos exclusivos para o modal de Chegadas */
+      #chegadasModal.modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
+      }
+
+      #chegadasModal .modal-content {
+        background-color: #fff;
+        margin: 10% auto; /* Centralizar verticalmente */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow-x: auto; /* Garantir que a tabela não quebre o layout */
+      }
+
+      #chegadasModal h2 {
+        text-align: center;
+        margin-top: 0;
+        color: #333;
+      }
+
+      #chegadasModal table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      #chegadasModal th,
+      #chegadasModal td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+      }
+
+      #chegadasModal th {
+        background-color: #007bff; /* Fundo azul */
+        font-weight: bold;
+      }
+
+      #chegadasModal button {
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      #chegadasModal button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </body>
+</html>

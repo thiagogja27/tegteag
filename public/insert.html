@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inserir Dados Teag</title>
+    <link rel="stylesheet" href="/css/inserir_dados.css" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+  </head>
+  <body>
+    <h1>Inserir Dados Teag</h1>
+    <div id="sidebar" class="sidebar">
+      <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()"
+        >×</a
+      >
+      <a href="javascript:void(0)" onclick="openNaviosModal()">Navios</a>
+      <a href="javascript:void(0)" onclick="openPosicoesModal()">Posições</a>
+      <a href="javascript:void(0)" onclick="openChegadasModal()">Chegadas</a>
+      <a href="#celulas">Células</a>
+      <a href="login.html" class="back-btn">Logout</a>
+    </div>
+
+    <img src="img/teag.png" alt="Logo TEAG" class="logo-right" />
+    <style>
+      .logo-right {
+        position: fixed;
+        top: 50px;
+        right: 10px;
+        z-index: 1000;
+      }
+    </style>
+
+    <button class="open-btn" onclick="openSidebar()">☰</button>
+
+    <!-- Formulário para Inserir Movimentações -->
+    <form id="movimentacoesForm">
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data" required /><br /><br />
+
+      <label for="produto">Produto:</label>
+      <select id="produto" name="produto" required>
+        <option value="">Selecione...</option>
+        <option value="Acucar">Açúcar</option>
+        <option value="Milho">Milho</option>
+        <option value="Soja">Soja</option>
+      </select>
+      <br /><br />
+
+      <label for="empresa">Empresa:</label>
+      <select id="empresa" name="empresa" required>
+        <option value="">Selecione...</option>
+        <option value="Raizen">Raizen</option>
+        <option value="LDC/Suisse">LDC/Suisse</option>
+        <option value="LDC/Brasil">LDC/Brasil</option>
+        <option value="LDC/Terceiros">LDC/Terceiros</option>
+        <option value="CARGIL">CARGIL</option>
+        <option value="CARGIL/TERCEIROS">CARGIL/TERCEIROS</option>
+      </select>
+      <br /><br />
+
+      <label for="toneladas_vagao">Toneladas Vagão:</label>
+      <input
+        type="number"
+        id="toneladas_vagao"
+        name="toneladas_vagao"
+        required
+      /><br /><br />
+
+      <label for="toneladas_caminhao">Toneladas Caminhão:</label>
+      <input
+        type="number"
+        id="toneladas_caminhao"
+        name="toneladas_caminhao"
+        required
+      /><br /><br />
+
+      <label for="quantidade_vagoes">Quantidade de Vagões:</label>
+      <input
+        type="number"
+        id="quantidade_vagoes"
+        name="quantidade_vagoes"
+        required
+      /><br /><br />
+
+      <label for="quantidade_caminhoes">Quantidade de Caminhões:</label>
+      <input
+        type="number"
+        id="quantidade_caminhoes"
+        name="quantidade_caminhoes"
+        required
+      /><br /><br />
+
+      <label for="tipo">Tipo:</label>
+      <select id="tipo" name="tipo" required>
+        <option value="">Selecione...</option>
+        <option value="Entrada">Entrada</option>
+        <option value="Saida">Saída</option>
+      </select>
+      <br /><br />
+
+      <button type="submit">Salvar Movimentação</button>
+    </form>
+
+    <p id="movimentacoesMessage"></p>
+
+    <a href="/dashboard">
+      <button>Ir para o Dashboard</button>
+    </a>
+
+    <!-- Modal para Navios -->
+    <div id="naviosModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">×</span>
+        <h2>Inserir Dados do Navio</h2>
+        <form id="naviosForm">
+          <label for="data">Data:</label>
+          <input
+            type="datetime-local"
+            id="navio_data"
+            name="data"
+            required
+          /><br /><br />
+
+          <label for="nome_navio">Nome do Navio:</label>
+          <input
+            type="text"
+            id="nome_navio"
+            name="nome_navio"
+            required
+          /><br /><br />
+
+          <label for="atracacao">Data de Atracação:</label>
+          <input
+            type="datetime-local"
+            id="atracacao"
+            name="atracacao"
+            required
+          /><br /><br />
+
+          <label for="inicio">Data de Início:</label>
+          <input
+            type="datetime-local"
+            id="inicio"
+            name="inicio"
+            required
+          /><br /><br />
+
+          <label for="talhe">Data Talhe:</label>
+          <input
+            type="datetime-local"
+            id="talhe"
+            name="talhe"
+            required
+          /><br /><br />
+
+          <label for="saida">Data de Saída:</label>
+          <input
+            type="datetime-local"
+            id="saida"
+            name="saida"
+            required
+          /><br /><br />
+
+          <label for="status">Status:</label>
+          <select id="status" name="status" required>
+            <option value="">Selecione...</option>
+            <option value="Operando">Operando</option>
+            <option value="Sem Operar">Sem Operar</option>
+            <option value="Finalizado">Finalizado</option>
+          </select>
+          <br /><br />
+
+          <button type="submit">Salvar Dados do Navio</button>
+        </form>
+      </div>
+    </div>
+    <!-- Menu Lateral -->
+    <div id="sidebar" class="sidebar">
+      <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()"
+        >×</a
+      >
+      <a href="javascript:void(0)" onclick="openNaviosModal()">Navios</a>
+      <a href="javascript:void(0)" onclick="openPosicoesModal()">Posições</a>
+      <a href="#chegadas">Chegadas</a>
+      <a href="#celulas">Células</a>
+      <a href="login.html" class="back-btn">Logout</a>
+    </div>
+
+    <!-- Modal para Posições -->
+    <div id="posicoesModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closePosicoesModal()">×</span>
+        <h2>Inserir Dados de Posições</h2>
+        <form id="posicoesForm">
+          <label for="dataHora">Data/Hora:</label>
+          <input
+            type="datetime-local"
+            id="dataHora"
+            name="dataHora"
+            required
+          /><br /><br />
+
+          <label for="ramal">Ramal:</label>
+          <select id="ramal" name="ramal" required>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+          </select>
+          <br /><br />
+
+          <label for="ferrovia">Ferrovia:</label>
+          <select id="ferrovia" name="ferrovia" required>
+            <option value="rumo">Rumo</option>
+            <option value="mrs">MRS</option>
+            <option value="vli">VLI</option>
+          </select>
+          <br /><br />
+
+          <label for="quantidade">Quantidade:</label>
+          <input
+            type="number"
+            id="quantidade"
+            name="quantidade"
+            required
+          /><br /><br />
+
+          <label for="tipoPosicao">Tipo:</label>
+          <select id="tipoPosicao" name="tipo" required>
+            <option value="">Selecione...</option>
+            <option value="BL">BL</option>
+            <option value="BE">BE</option>
+          </select>
+
+          <br /><br />
+
+          <label for="terminal">Terminal:</label>
+          <select id="terminal" name="terminal" required>
+            <option value="teg">TEG</option>
+            <option value="teag">TEAG</option>
+          </select>
+          <br /><br />
+
+          <button type="submit">Salvar Posição</button>
+        </form>
+      </div>
+    </div>
+    <!-- Modal para Chegadas -->
+    <!-- Modal para Chegadas -->
+    <div id="modalChegadas" class="modal">
+      <div class="modal-content">
+        <h2>Registrar Chegadas</h2>
+        <form id="formChegadas">
+          <!-- Data/Hora -->
+          <label for="chegadasDataHora">Data/Hora:</label>
+          <input
+            type="datetime-local"
+            id="chegadasDataHora"
+            required
+          /><br /><br />
+
+          <!-- Quantidade -->
+          <label for="chegadasQuantidade">Quantidade:</label>
+          <input
+            type="number"
+            id="chegadasQuantidade"
+            min="1"
+            required
+          /><br /><br />
+
+          <!-- Produto -->
+          <label for="chegadasProduto">Produto:</label>
+          <select id="chegadasProduto" required>
+            <option value="">Selecione...</option>
+            <option value="Milho">Milho</option>
+            <option value="Soja">Soja</option>
+            <option value="Acucar">Açúcar</option>
+          </select>
+          <br /><br />
+
+          <!-- Ferrovia -->
+          <label for="chegadasFerrovia">Ferrovia:</label>
+          <select id="chegadasFerrovia" required>
+            <option value="">Selecione...</option>
+            <option value="Rumo">Rumo</option>
+            <option value="MRS">MRS</option>
+            <option value="VLI">VLI</option>
+          </select>
+          <br /><br />
+
+          <!-- Empresa -->
+          <label for="chegadasEmpresa">Empresa:</label>
+          <select id="chegadasEmpresa" required>
+            <option value="">Selecione...</option>
+            <option value="LDC">LDC</option>
+            <option value="LDC/Suisse">LDC/Suisse</option>
+            <option value="LDC Terceiros">LDC Terceiros</option>
+            <option value="LDC Brasil">LDC Brasil</option>
+            <option value="Cargil">Cargil</option>
+            <option value="Cargil/Terceiros">Cargil/Terceiros</option>
+            <option value="Raizen">Raizen</option>
+          </select>
+          <br /><br />
+
+          <button type="button" onclick="saveChegada()">Salvar</button>
+          <button type="button" onclick="closeChegadasModal()">Cancelar</button>
+        </form>
+      </div>
+    </div>
+
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+        border-radius: 8px;
+      }
+
+      .close-btn {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close-btn:hover,
+      .close-btn:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      /* Modal principal para chegadas */
+      #modalChegadas {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      /* Conteúdo do modal */
+      #modalChegadas .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        border-radius: 8px;
+      }
+
+      /* Título do modal */
+      #modalChegadas .modal-content h2 {
+        margin-top: 0;
+        text-align: center;
+        color: #333;
+      }
+
+      /* Estilo da tabela dentro do modal */
+      #modalChegadas .modal-content table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      #modalChegadas .modal-content table th,
+      #modalChegadas .modal-content table td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+      }
+
+      /* Botões de ação no modal */
+      #modalChegadas .modal-content button {
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      #modalChegadas .modal-content button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Botões adicionais de fechar/cancelar */
+      #modalChegadas .modal-content .close-btn,
+      #modalChegadas .modal-content .cancel-btn {
+        background-color: #dc3545;
+      }
+
+      #modalChegadas .modal-content .close-btn:hover,
+      #modalChegadas .modal-content .cancel-btn:hover {
+        background-color: #c82333;
+      }
+
+      #modalChegadas .modal-content .save-btn {
+        background-color: #28a745;
+      }
+
+      #modalChegadas .modal-content .save-btn:hover {
+        background-color: #218838;
+      }
+    </style>
+
+    <script>
+      function openSidebar() {
+        document.getElementById("sidebar").style.width = "250px";
+      }
+
+      function closeSidebar() {
+        document.getElementById("sidebar").style.width = "0";
+      }
+
+      function openNaviosModal() {
+        const modal = document.getElementById("naviosModal");
+        modal.style.display = "block";
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("naviosModal");
+        modal.style.display = "none";
+      }
+
+      function openPosicoesModal() {
+        document.getElementById("posicoesModal").style.display = "block";
+      }
+
+      function closePosicoesModal() {
+        document.getElementById("posicoesModal").style.display = "none";
+      }
+
+      document
+        .getElementById("posicoesForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const tipo = document.getElementById("tipoPosicao").value;
+
+          if (!tipo) {
+            alert("Por favor, selecione um tipo válido.");
+            return;
+          }
+
+          const posicoesData = {
+            dataHora: document.getElementById("dataHora").value,
+            ramal: document.getElementById("ramal").value,
+            ferrovia: document.getElementById("ferrovia").value,
+            quantidade: parseInt(
+              document.getElementById("quantidade").value,
+              10
+            ),
+            tipo: tipo,
+            terminal: document.getElementById("terminal").value,
+          };
+
+          console.log("Dados capturados para envio (posições):", posicoesData);
+
+          try {
+            const response = await fetch("/posicoes", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(posicoesData),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+              console.log("Dados salvos no servidor:", result); // Log para verificar o sucesso
+              alert("Dados salvos com sucesso!");
+            } else {
+              console.error("Erro ao salvar os dados:", result);
+              alert(`Erro ao salvar os dados: ${result.message}`);
+            }
+          } catch (err) {
+            console.error("Erro ao salvar os dados de posições:", err);
+            alert(
+              "Erro ao tentar salvar os dados. Verifique o console para mais detalhes."
+            );
+          }
+        });
+
+      document
+        .getElementById("movimentacoesForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const tipo = document.getElementById("tipo").value;
+
+          let toneladasVagao = parseFloat(
+            document.getElementById("toneladas_vagao").value
+          );
+          let toneladasCaminhao = parseFloat(
+            document.getElementById("toneladas_caminhao").value
+          );
+
+          if (tipo === "Saida") {
+            toneladasVagao = -Math.abs(toneladasVagao);
+            toneladasCaminhao = -Math.abs(toneladasCaminhao);
+          }
+
+          const data = {
+            data: document.getElementById("data").value,
+            produto: document.getElementById("produto").value,
+            empresa: document.getElementById("empresa").value,
+            toneladas_vagao: toneladasVagao,
+            toneladas_caminhao: toneladasCaminhao,
+            quantidade_vagoes: parseInt(
+              document.getElementById("quantidade_vagoes").value,
+              10
+            ),
+            quantidade_caminhoes: parseInt(
+              document.getElementById("quantidade_caminhoes").value,
+              10
+            ),
+            tipo: tipo,
+          };
+
+          try {
+            const response = await fetch("/movimentacoes", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            });
+
+            const messageEl = document.getElementById("movimentacoesMessage");
+            if (response.ok) {
+              messageEl.textContent = "Movimentação salva com sucesso!";
+              messageEl.style.color = "green";
+            } else {
+              messageEl.textContent = "Erro ao salvar movimentação.";
+              messageEl.style.color = "red";
+            }
+          } catch (err) {
+            console.error("Erro:", err);
+            document.getElementById("movimentacoesMessage").textContent =
+              "Erro ao salvar movimentação.";
+          }
+        });
+
+      document
+        .getElementById("naviosForm")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const navioData = {
+            data: document.getElementById("navio_data").value,
+            nome_navio: document.getElementById("nome_navio").value,
+            atracacao: document.getElementById("atracacao").value,
+            inicio: document.getElementById("inicio").value,
+            talhe: document.getElementById("talhe").value,
+            saida: document.getElementById("saida").value,
+            status: document.getElementById("status").value,
+          };
+
+          console.log("Dados a serem enviados:", navioData); // Log para verificar os valores
+
+          try {
+            const response = await fetch("/navios", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(navioData),
+            });
+
+            if (response.ok) {
+              alert("Dados do navio salvos com sucesso!");
+              closeModal();
+            } else {
+              const error = await response.json();
+              console.error("Erro ao salvar:", error);
+              alert(
+                `Erro ao salvar os dados do navio: ${
+                  error.message || "Erro desconhecido."
+                }`
+              );
+            }
+          } catch (err) {
+            console.error("Erro ao tentar salvar os dados do navio:", err);
+            alert("Erro ao salvar os dados do navio.");
+          }
+        });
+      // Função para buscar chegadas
+      async function fetchChegadasData() {
+        try {
+          const response = await fetch("/chegadas");
+          const data = await response.json();
+
+          console.log("Chegadas carregadas:", data);
+
+          const tableBody = document.querySelector("#tableChegadas tbody");
+          tableBody.innerHTML = ""; // Limpa a tabela antes de atualizá-la
+
+          data.forEach((chegada) => {
+            const row = `
+                <tr data-id="${chegada.Id}">
+                    <td>${chegada.DataHora}</td>
+                    <td>${chegada.Quantidade}</td>
+                    <td>${chegada.Produto}</td>
+                    <td>${chegada.Ferrovia}</td>
+                    <td>${chegada.Empresa}</td>
+                    <td>
+                        <button onclick="deleteChegada(${chegada.Id})">Excluir</button>
+                    </td>
+                </tr>
+            `;
+            tableBody.innerHTML += row;
+          });
+
+          // Reaplicar DataTables.js
+          if ($.fn.DataTable.isDataTable("#tableChegadas")) {
+            $("#tableChegadas").DataTable().destroy();
+          }
+          $("#tableChegadas").DataTable();
+        } catch (err) {
+          console.error("Erro ao carregar chegadas:", err);
+        }
+      }
+
+      // Exemplo de evento para abrir o modal de chegadas
+
+      async function saveChegada() {
+        const dataHora = document.getElementById("chegadasDataHora").value;
+        const quantidade = document.getElementById("chegadasQuantidade").value;
+        const produto = document.getElementById("chegadasProduto").value;
+        const ferrovia = document.getElementById("chegadasFerrovia").value;
+        const empresa = document.getElementById("chegadasEmpresa").value;
+
+        // Validação
+        if (!dataHora || !quantidade || !produto || !ferrovia || !empresa) {
+          alert("Todos os campos são obrigatórios!");
+          return;
+        }
+
+        const chegada = {
+          dataHora,
+          quantidade,
+          produto,
+          ferrovia,
+          empresa,
+        };
+
+        console.log("Chegada a ser salva:", chegada);
+
+        try {
+          const response = await fetch("/chegadas", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(chegada),
+          });
+
+          if (response.ok) {
+            alert("Chegada salva com sucesso!");
+            closeChegadasModal();
+          } else {
+            const error = await response.json();
+            alert(`Erro ao salvar chegada: ${error.message}`);
+          }
+        } catch (err) {
+          console.error("Erro ao salvar chegada:", err);
+          alert("Erro ao salvar chegada.");
+        }
+      }
+
+      function openChegadasModal() {
+        const modal = document.getElementById("modalChegadas");
+        modal.style.display = "block";
+      }
+
+      function closeChegadasModal() {
+        const modal = document.getElementById("modalChegadas");
+        modal.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
