@@ -1,7 +1,7 @@
 const odbc = require('odbc');
 
 // String de conexão ODBC
-const connectionString = "Driver={ODBC Driver 17 for SQL Server};Server=DESKTOP-QUVHV6B;Database=operacional;Trusted_Connection=Yes;";
+const connectionString = "";
 
 // Função para conectar ao banco
 async function getDbConnection() {
