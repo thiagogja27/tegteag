@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}" />
+    <style>
+        body {
+            background-color: white;
+            color: black;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+            color: rgb(43, 231, 231);
+        }
+
+        .card {
+            background-color: blue;
+            color: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .card p {
+            margin: 8px 0 0;
+            font-size: 18px;
+        }
+
+        .logo-right {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            z-index: 1000;
+        }
+
+        .content {
+            margin-left: 250px;
+            transition: margin-left 0.5s;
+        }
+
+        .sidebar:hover ~ .content {
+            margin-left: 250px;
+        }
+        .charts-container {
+    display: flex;
+    flex-wrap: wrap; /* Impede que os gráficos quebrem para a próxima linha */
+    margin-left: 50px;
+    margin-right: 0%;
+    padding: 5px;
+}
+.chart {
+    width: 50%; /* Ajusta a largura para garantir que dois gráficos caibam lado a lado */
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+   
+.titulo{
+    background-color: #181a1a;
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+
+        .navios-info {
+            padding: 20px;
+        }
+
+        .navio-card {
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="sidebar" class="sidebar">
+        <div class="tab">☰</div>
+        <a href="{{ url_for('dashboard_posicoes') }}">Ver Posições</a>
+        <a href="{{ url_for('dashboard_movimentacoes') }}">Ver Movimentações</a>
+        <a href="{{ url_for('dashboard_navios') }}">Ver Navios</a>
+        <a href="{{ url_for('dashboard_celulas') }}">Ver Células</a>
+        <a href="{{ url_for('dashboard_chegadas') }}">Ver Chegadas</a>
+        <a href="{{ url_for('inserir_dados') }}" class="back-btn">Voltar</a>
+        <a href="{{ url_for('index') }}" class="back-btn">Logout</a>
+        <img src="{{ url_for('static', filename='img/bandeira.png') }}" style="width: 30px; padding-left: 40px; padding-top: 10px;">
+    </div>
+
+    <div class="content">
+       <div class="titulo"><h2>Dashboard Terminal Teag</h2></div> 
+        <div class="card">
+            <h2>Quantidade de Vagões</h2>
+            <p>{{ quantidade_vagoes_teag }}</p>
+        </div>
+        <div class="card">
+            <h2>Quantidade de Caminhões</h2>
+            <p>{{ quantidade_caminhoes_teag }}</p>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart">
+                {{ graph_bar_teag_html|safe }}
+            </div>
+            <div class="chart">
+                {{ graph_horizontal_bar_teag_html|safe }}
+            </div>
+            <div class="chart">
+                {{ graph_celulas_teag_html|safe }}
+            </div>
+        </div>
+
+        <h2>Navios em Terminal Teag</h2>
+        <div class="navios-info">
+            {% for navio in navios_teag_data %}
+            <div class="navio-card">
+                <p><strong>Status:</strong> {{ navio.status }}</p>
+                <p><strong>Vessel:</strong> {{ navio.vessel }}</p>
+                <p><strong>Produto:</strong> {{ navio.produto }}</p>
+                <p><strong>Plana de Carga:</strong> {{ navio.plana_de_carga }}</p>
+                <p><strong>Embarque Período Ant:</strong> {{ navio.embarc_periodo_ant }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="titulo"><h2>Dashboard Terminal Teg</h2></div>
+        <div class="card">
+            <h2>Quantidade de Vagões</h2>
+            <p>{{ quantidade_vagoes_teg }}</p>
+        </div>
+        <div class="card">
+            <h2>Quantidade de Caminhões</h2>
+            <p>{{ quantidade_caminhoes_teg }}</p>
+        </div>
+    
+        <div class="charts-container">
+            <div class="chart">
+                {{ graph_bar_teg_html|safe }}
+            </div>
+            <div class="chart">
+                {{ graph_horizontal_bar_teg_html|safe }}
+            </div>
+            <div class="chart">
+                {{ graph_celulas_teg_html|safe }}
+            </div>
+        </div>
+    
+        <h2>Navios em Terminal Teg</h2>
+        <div class="navios-info">
+            {% for navio in navios_teg_data %}
+            <div class="navio-card">
+                <p><strong>Status:</strong> {{ navio.status }}</p>
+                <p><strong>Vessel:</strong> {{ navio.vessel }}</p>
+                <p><strong>Produto:</strong> {{ navio.produto }}</p>
+                <p><strong>Plana de Carga:</strong> {{ navio.plana_de_carga }}</p>
+                <p><strong>Embarque Período Ant:</strong> {{ navio.embarc_periodo_ant }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

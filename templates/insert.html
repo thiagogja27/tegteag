@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserir Dados Teag</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inserir_dados.css') }}" />
+</head>
+<body>
+    <h1>Movimentações</h1>
+    <div id="sidebar" class="sidebar">
+       
+        <a href="{{ url_for('inserir_dados_navios') }}">Navios</a>
+        <a href="{{ url_for('inserir_dados_posicoes') }}">Posições</a>
+        <a href="{{ url_for('inserir_dados_chegadas') }}">Chegadas</a>
+      <a href="{{ url_for('inserir_dados_celulas') }}">Células</a>
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('conferente_fiscal') }}">Conferente Fiscal</a>
+      <a href="{{ url_for('confiabilidade') }}">Confiabilidade</a>
+        <a href="{{ url_for('index') }}" class="back-btn">Logout</a>
+        <img src="{{ url_for('static', filename='img/bandeira.png') }}" style="width: 30px; padding-left: 40px; padding-top: 10px;">
+    </div>
+
+    <img src="{{ url_for('static', filename='img/teag.png') }}" alt="Logo TEAG" class="logo-right" style="padding-top: 10px;">
+    <style>
+        .logo-right {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            z-index: 1000;
+        }
+    </style>
+
+ 
+
+    <!-- Formulário para Inserir Movimentações -->
+    <form id="movimentacoesForm" method="POST" action="{{ url_for('save_movimentacoes') }}">
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required><br><br>
+
+        <label for="produto">Produto:</label>
+        <select id="produto" name="produto" required>
+            <option value="">Selecione...</option>
+            <option value="Acucar">Açúcar</option>
+            <option value="Milho">Milho</option>
+            <option value="Soja">Soja</option>
+        </select>
+        <br><br>
+
+        <label for="empresa">Empresa:</label>
+        <select id="empresa" name="empresa" required>
+            <option value="">Selecione...</option>
+            <option value="Raizen">Raizen</option>
+            <option value="Raizen">Raizen/Terceiros</option>
+            <option value="LDC/Suisse">LDC/Suisse</option>
+            <option value="LDC/Brasil">LDC/Brasil</option>
+            <option value="LDC/Terceiros">LDC/Terceiros</option>
+            <option value="CARGIL">CARGIL</option>
+            <option value="CARGIL/TERCEIROS">CARGIL/TERCEIROS</option>
+        </select>
+        <br><br>
+
+        <label for="terminal">Terminal:</label>
+        <select id="terminal" name="terminal" required>
+            <option value="">Selecione...</option>
+            <option value="teg">Teg</option>
+            <option value="teag">Teag</option>
+        </select>
+        <br><br>
+
+        <label for="toneladas_vagao">Toneladas Vagão:</label>
+        <input type="number" id="toneladas_vagao" name="toneladas_vagao" required><br><br>
+
+        <label for="toneladas_caminhao">Toneladas Caminhão:</label>
+        <input type="number" id="toneladas_caminhao" name="toneladas_caminhao" required><br><br>
+
+        <label for="quantidade_vagoes">Quantidade de Vagões:</label>
+        <input type="number" id="quantidade_vagoes" name="quantidade_vagoes" required><br><br>
+
+        <label for="quantidade_caminhoes">Quantidade de Caminhões:</label>
+        <input type="number" id="quantidade_caminhoes" name="quantidade_caminhoes" required><br><br>
+
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" name="tipo" required>
+            <option value="">Selecione...</option>
+            <option value="Entrada">Entrada</option>
+            <option value="Saida">Saída</option>
+        </select>
+        <br><br>
+
+        <button type="submit">Salvar Movimentação</button>
+    </form>
+
+    <p id="movimentacoesMessage">{{ message }}</p>
+
+
+     <!-- Modal para Navios -->
+     <div id="overlay" class="overlay"></div>
+<div id="naviosModal" class="modal {% if modal == 'navios' %}show{% endif %}">
+    <div class="modal-content">
+        <a href="{{ url_for('inserir_dados') }}" class="close-btn">×</a>
+        <h2>Inserir Dados do Navio</h2>
+        <form id="naviosForm" method="POST" action="{{ url_for('save_navios') }}">
+            <label for="data">Data:</label>
+            <input type="datetime-local" id="navio_data" name="data" required><br><br>
+
+            <label for="nome_navio">Nome do Navio:</label>
+            <input type="text" id="nome_navio" name="nome_navio" required><br><br>
+
+            <label for="atracacao">Data de Atracação:</label>
+            <input type="datetime-local" id="atracacao" name="atracacao" required><br><br>
+
+            <label for="inicio">Data de Início:</label>
+            <input type="datetime-local" id="inicio" name="inicio" required><br><br>
+
+            <label for="talhe">Data Talhe:</label>
+            <input type="datetime-local" id="talhe" name="talhe" required><br><br>
+
+            <label for="saida">Data de Saída:</label>
+            <input type="datetime-local" id="saida" name="saida" required><br><br>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="">Selecione...</option>
+                <option value="Operando">Operando</option>
+                <option value="Sem Operar">Sem Operar</option>
+                <option value="Finalizado">Finalizado</option>
+            </select>
+            <br><br>
+
+            <label for="vessel">Vessel:</label>
+            <input type="text" id="vessel" name="vessel" required><br><br>
+
+            <label for="qtty">Quantidade (QTTY):</label>
+            <input type="number" id="qtty" name="qtty" required><br><br>
+
+            <label for="comm">Commodity (COMM):</label>
+            <input type="text" id="comm" name="comm" required><br><br>
+
+            <label for="eta">ETA:</label>
+            <input type="datetime-local" id="eta" name="eta" required><br><br>
+
+            <label for="time">Time:</label>
+            <input type="text" id="time" name="time" required><br><br>
+
+            <label for="etb">ETB:</label>
+            <input type="datetime-local" id="etb" name="etb" required><br><br>
+
+            <label for="etc">ETC:</label>
+            <input type="datetime-local" id="etc" name="etc" required><br><br>
+
+            <label for="charter">Charter:</label>
+            <input type="text" id="charter" name="charter" required><br><br>
+
+            <label for="disport">Disport:</label>
+            <input type="text" id="disport" name="disport" required><br><br>
+
+            <label for="agency">Agency:</label>
+            <input type="text" id="agency" name="agency" required><br><br>
+
+
+           <label for="op">OP:</label>
+            <select id="op" name="op" required>
+                <option value="">Selecione...</option>
+                <option value="teg">Teg</option>
+                <option value="teag">Teag</option>
+            </select>
+            <br><br>
+
+            <label for="produto">Produto:</label>
+            <input type="text" id="produto" name="produto" required><br><br>
+
+            <label for="plana_de_carga">Plana de Carga:</label>
+            <input type="text" id="plana_de_carga" name="plana_de_carga" required><br><br>
+
+            <label for="embarc_periodo_ant">Embarc. Periodo Ant.:</label>
+            <input type="text" id="embarc_periodo_ant" name="embarc_periodo_ant" required><br><br>
+
+            <label for="periodo">Periodo:</label>
+            <input type="text" id="periodo" name="periodo" required><br><br>
+
+            <label for="a_bordo">A Bordo:</label>
+            <input type="text" id="a_bordo" name="a_bordo" required><br><br>
+
+            <label for="saldo">Saldo:</label>
+            <input type="text" id="saldo" name="saldo" required><br><br>
+
+            <button type="submit">Salvar Dados do Navio</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Modal para Posições -->
+<div id="posicoesModal" class="modal {% if modal == 'posicoes' %}show{% endif %}">
+    <div class="modal-content">
+        <a href="{{ url_for('inserir_dados') }}" class="close-btn">×</a>
+        <h2>Inserir Dados de Posições</h2>
+        <form id="posicoesForm" method="POST" action="{{ url_for('save_posicoes') }}">
+            <label for="dataHora">Data/Hora:</label>
+            <input type="datetime-local" id="dataHora" name="dataHora" required><br><br>
+
+            <label for="ramal">Ramal:</label>
+            <select id="ramal" name="ramal" required>
+                <option value="100">100</option>
+                <option value="200">200</option>
+                <option value="300">300</option>
+            </select>
+            <br><br>
+
+            <label for="ferrovia">Ferrovia:</label>
+            <select id="ferrovia" name="ferrovia" required>
+                <option value="rumo">Rumo</option>
+                <option value="mrs">MRS</option>
+                <option value="vli">VLI</option>
+            </select>
+            <br><br>
+
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade" name="quantidade" required><br><br>
+
+            <label for="tipoPosicao">Tipo:</label>
+            <select id="tipoPosicao" name="tipo" required>
+                <option value="">Selecione...</option>
+                <option value="BL">BL</option>
+                <option value="BE">BE</option>
+            </select>
+            <br><br>
+
+            <label for="terminal">Terminal:</label>
+            <select id="terminal" name="terminal" required>
+                <option value="teg">TEG</option>
+                <option value="teag">TEAG</option>
+            </select>
+            <br><br>
+
+            <button type="submit">Salvar Posição</button>
+        </form>
+    </div>
+</div>
+! <!-- Modal para Chegadas -->
+<div id="chegadasModal" class="modal {% if modal == 'chegadas' %}show{% endif %}">
+    <div class="modal-content">
+        <a href="{{ url_for('inserir_dados') }}" class="close-btn">×</a>
+        <h2>Registrar Chegadas</h2>
+        <form id="formChegadas" method="POST" action="{{ url_for('save_chegada') }}">
+            <label for="chegadasDataHora">Data/Hora:</label>
+            <input type="datetime-local" id="chegadasDataHora" name="dataHora" required><br><br>
+
+            <label for="chegadasQuantidade">Quantidade:</label>
+            <input type="number" id="chegadasQuantidade" name="quantidade" min="1" required><br><br>
+
+            <label for="chegadasProduto">Produto:</label>
+            <select id="chegadasProduto" name="produto" required>
+                <option value="">Selecione...</option>
+                <option value="Milho">Milho</option>
+                <option value="Soja">Soja</option>
+                <option value="Acucar">Açúcar</option>
+            </select>
+            <br><br>
+
+            <label for="chegadasFerrovia">Ferrovia:</label>
+            <select id="chegadasFerrovia" name="ferrovia" required>
+                <option value="">Selecione...</option>
+                <option value="Rumo">Rumo</option>
+                <option value="MRS">MRS</option>
+                <option value="VLI">VLI</option>
+            </select>
+            <br><br>
+
+            <label for="chegadasEmpresa">Empresa:</label>
+            <select id="chegadasEmpresa" name="empresa" required>
+                <option value="">Selecione...</option>
+                <option value="LDC">LDC</option>
+                <option value="LDC/Suisse">LDC/Suisse</option>
+                <option value="LDC Terceiros">LDC Terceiros</option>
+                <option value="LDC Brasil">LDC Brasil</option>
+                <option value="Cargil">Cargil</option>
+                <option value="Cargil/Terceiros">Cargil/Terceiros</option>
+                <option value="Raizen">Raizen</option>
+            </select>
+            <br><br>
+
+            <button type="submit">Salvar Chegada</button>
+        </form>
+    </div>
+</div>
+
+
+ <!-- Modal para Células -->
+ <div id="celulasModal" class="modal {% if modal == 'celulas' %}show{% endif %}">
+    <div class="modal-content">
+        <a href="{{ url_for('inserir_dados') }}" class="close-btn">×</a>
+        <h2>Inserir Dados de Células</h2>
+        <form id="formCelulas" method="POST" action="{{ url_for('save_celulas') }}">
+
+            <label for="data">Data:</label>
+            <input type="datetime-local" id="navio_data" name="data" required><br><br>
+
+            <label for="capacidade">Capacidade:</label>
+            <input type="number" id="capacidade" name="capacidade" required><br><br>
+
+
+            <label for="celula">Celula:</label>
+            <select id="celula" name="celula" required>
+                <option value="">Selecione...</option>
+                <option value="A3">A3</option>
+                <option value="B3">B3</option>
+                <option value="A4">A4</option>
+            </select>
+            <br><br>
+            <label for="celula">Terminal:</label>
+            <select id="terminal" name="terminal" required>
+                <option value="">Selecione...</option>
+                <option value="teg">teg</option>
+                <option value="teag">teag</option>
+            </select>
+            <br><br>
+
+            <label for="produto">Produto:</label>
+            <select id="produto" name="produto" required>
+                <option value="">Selecione...</option>
+                <option value="milho">Milho</option>
+                <option value="soja">Soja</option>
+                <option value="açucar">Açucar</option>
+            </select>
+            <br><br>
+
+            <label for="entrada">Entrada:</label>
+            <input type="number" id="entrada" name="entrada" required><br><br>
+
+            <label for="cutoff_transf">Cutoff / Transf:</label>
+            <input type="number" id="cutoff_transf" name="cutoff_transf" required><br><br>
+
+            <label for="saida">Saída:</label>
+            <input type="number" id="saida" name="saida" required><br><br>
+
+            <button type="submit">Salvar Célula</button>
+        </form>
+    </div>
+</div>
+<!-- Overlay para escurecer o fundo -->
+<div id="overlay" class="overlay"></div>
+
+<!-- Script para mostrar o overlay quando o modal está visível -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var modals = document.querySelectorAll('.modal');
+        modals.forEach(function(modal) {
+            if (modal.classList.contains('show')) {
+                document.getElementById('overlay').style.display = 'block';
+            }
+        });
+    });
+</script>
+</body>
+</html>

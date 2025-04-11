@@ -1,0 +1,2097 @@
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.0.11.101:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['quantidade_total'] = df['toneladas_vagao'] + df['toneladas_caminhao']
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:18:39] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:18:40] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:18:40] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:27:50] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:27:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:27:53] "GET /static/css/login.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:27:54] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:28:17] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:28:17] "GET /static/css/login.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:28:18] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:28:43] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:28:43] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:28:43] "GET /static/img/bandeira.png HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:28:43] "GET /static/css/inserir_dados.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:28:43] "GET /favicon.ico HTTP/1.1" 404 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:28:49] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:28:50] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:28:50] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:29:08] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:29:38] "GET /dashboard_celulas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:29:39] "GET /static/plotly_graph.html HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:29:39] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:29:39] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:29:43] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:30:21] "GET /edit_celulas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:30:21] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:30:21] "GET /static/plotly_graph.html HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:30:22] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:30:24] "GET /favicon.ico HTTP/1.1" 404 -
+/workspaces/tegteag/app.py:639: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '30000' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:643: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '0.0' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:644: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '10000' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:645: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '0' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:646: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '4000' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:647: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '6000' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+127.0.0.1 - - [25/Mar/2025 19:30:35] "POST /update_celulas HTTP/1.1" 302 -
+127.0.0.1 - - [25/Mar/2025 19:30:35] "GET /dashboard_celulas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:30:35] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:30:35] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:30:35] "GET /static/plotly_graph.html HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:30:38] "GET /favicon.ico HTTP/1.1" 404 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:30:49] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:30:49] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:30:50] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:31:07] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:31:26] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:31:26] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:31:26] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:31:27] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:31:40] "GET /edit_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:31:40] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:31:40] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:31:40] "GET /favicon.ico HTTP/1.1" 404 -
+/workspaces/tegteag/app.py:372: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '0' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:373: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '1000' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:374: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '0' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:375: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '79' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+127.0.0.1 - - [25/Mar/2025 19:31:59] "POST /update_movimentacoes HTTP/1.1" 302 -
+127.0.0.1 - - [25/Mar/2025 19:31:59] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:31:59] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:31:59] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:31:59] "GET /favicon.ico HTTP/1.1" 404 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:32:04] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:32:04] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:32:04] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:32:21] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:32:27] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:32:27] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:32:27] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:32:28] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:33:08] "GET /edit_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:33:08] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:33:08] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:33:08] "GET /favicon.ico HTTP/1.1" 404 -
+/workspaces/tegteag/app.py:372: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '0' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:373: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '1000' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:374: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '0' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:375: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '79' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+127.0.0.1 - - [25/Mar/2025 19:33:39] "POST /update_movimentacoes HTTP/1.1" 302 -
+127.0.0.1 - - [25/Mar/2025 19:33:39] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:33:39] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:33:39] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:33:39] "GET /favicon.ico HTTP/1.1" 404 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:33:51] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:33:52] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:33:52] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:34:10] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:34:12] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:34:12] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:34:12] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:34:12] "GET /favicon.ico HTTP/1.1" 404 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:34:18] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:34:18] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:34:18] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:34:27] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:34:27] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:34:27] "GET /static/css/inserir_dados.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:34:27] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:34:28] "GET /favicon.ico HTTP/1.1" 404 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:34:53] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:35:07] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:35:07] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:35:07] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:35:08] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:35:12] "GET /edit_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:35:12] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:35:12] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:35:12] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:36:15] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:36:16] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:36:31] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:36:32] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:36:32] "GET /static/css/inserir_dados.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:36:33] "GET /static/img/bandeira.png HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:37:02] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:37:02] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:37:36] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:37:36] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:37:37] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:38:10] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:38:13] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:38:14] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:38:26] "GET /edit_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:38:26] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:38:26] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:372: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '0' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:373: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '1000' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:374: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '0' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:375: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '79' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+127.0.0.1 - - [25/Mar/2025 19:38:35] "POST /update_movimentacoes HTTP/1.1" 302 -
+127.0.0.1 - - [25/Mar/2025 19:38:36] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:38:36] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:38:36] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:38:41] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:38:41] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:38:41] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:39:02] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:39:02] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:39:02] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:39:26] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:39:27] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:39:27] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:39:44] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:39:50] "GET /edit_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:39:50] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:39:50] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:39:56] "POST /delete_movimentacoes HTTP/1.1" 302 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:39:57] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:39:57] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:39:57] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:41:03] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:41:03] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:41:03] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:41:30] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:41:30] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:41:30] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:41:45] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:41:45] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:41:46] "GET /static/css/inserir_dados.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:41:46] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:42:16] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:42:17] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:42:17] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:42:17] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:43:36] "POST /movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:43:37] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:43:37] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:43:37] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:43:43] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:43:43] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:43:43] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:44:10] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:44:10] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:44:11] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:44:23] "GET /edit_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:44:24] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:44:24] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:372: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '2177' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:373: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '6598' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:374: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '23' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:375: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '140' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+127.0.0.1 - - [25/Mar/2025 19:44:34] "POST /update_movimentacoes HTTP/1.1" 302 -
+127.0.0.1 - - [25/Mar/2025 19:44:34] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:44:34] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:44:34] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:44:48] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:44:48] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:44:48] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:45:03] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:45:04] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:45:04] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:45:33] "GET /edit_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:45:34] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:45:34] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:372: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '2177' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:373: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '6598' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:374: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '23' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:375: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '140' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+127.0.0.1 - - [25/Mar/2025 19:45:41] "POST /update_movimentacoes HTTP/1.1" 302 -
+127.0.0.1 - - [25/Mar/2025 19:45:41] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:45:42] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:45:42] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:45:53] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:45:53] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:45:53] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:45:56] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:45:57] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:45:57] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:46:02] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:46:03] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:46:03] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:46:55] "GET /edit_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:46:55] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:46:55] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:372: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '2177' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:373: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '6598' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:374: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '23' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:375: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '140' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+127.0.0.1 - - [25/Mar/2025 19:47:02] "POST /update_movimentacoes HTTP/1.1" 302 -
+127.0.0.1 - - [25/Mar/2025 19:47:02] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:47:02] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:47:02] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:47:06] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:47:06] "GET /static/img/bandeira.png HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:47:07] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:47:13] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:47:14] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:47:14] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:51:27] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:51:28] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:51:28] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:51:44] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 19:52:12] "GET /dashboard_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:52:13] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:52:13] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:52:13] "GET /favicon.ico HTTP/1.1" 404 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 19:52:53] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:52:53] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 19:52:53] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 19:53:10] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 20:00:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:00:54] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 20:03:24] "GET /dashboard_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:03:25] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:03:25] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:03:25] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 20:05:10] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:05:11] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 20:05:11] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 20:05:15] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:05:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:05:20] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 20:05:36] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:05:37] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 20:05:57] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:05:57] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 20:10:17] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:10:18] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 20:10:25] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:10:26] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 20:10:34] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:10:34] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 20:10:50] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:10:50] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 20:11:03] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:11:03] "GET /static/css/login.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 20:18:24] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:18:25] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 20:18:25] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 20:18:41] "GET /favicon.ico HTTP/1.1" 404 -
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+Dados capturados para envio (movimentações): {'data': '2025-03-25', 'produto': 'Acucar', 'empresa': 'Raizen', 'toneladas_vagao': -100.0, 'toneladas_caminhao': -0.0, 'quantidade_vagoes': 0, 'quantidade_caminhoes': 0, 'tipo': 'Saida', 'terminal': 'teag'}
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.0.11.101:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+127.0.0.1 - - [25/Mar/2025 21:51:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:51:03] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:53:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:53:29] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:53:38] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:53:38] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:53:38] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:53:38] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:53:38] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:54:30] "GET /inserir_dados_celulas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:54:30] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:54:30] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:54:30] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:54:30] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:54:34] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:54:34] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:54:34] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:54:34] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:54:34] "GET /static/img/teag.png HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['quantidade_total'] = df['toneladas_vagao'] + df['toneladas_caminhao']
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 21:54:38] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:54:38] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:54:38] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:54:46] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:54:47] "GET /static/css/consultar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:54:47] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 21:55:14] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:55:14] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:55:14] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:55:17] "GET /dashboard_celulas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:55:18] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:55:18] "GET /static/plotly_graph.html HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:55:19] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 21:58:42] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:58:43] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:58:43] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:59:08] "GET /dashboard_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:59:09] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:59:09] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 21:59:16] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 21:59:17] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 21:59:17] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:17:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:17:10] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:17:11] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 22:20:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:20:02] "GET /static/css/login.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:20:03] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 22:20:19] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:20:19] "GET /static/img/bandeira.png HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:20:19] "GET /static/img/teag.png HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:20:19] "GET /static/css/inserir_dados.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:20:20] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:21:00] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:21:00] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:21:01] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:21:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:21:32] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:22:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:22:16] "POST /movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:22:17] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:22:17] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:22:17] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:22:17] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:22:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:22:21] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:22:34] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:22:36] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:22:36] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:22:36] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:22:36] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:30] "GET /inserir_dados/navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:23:30] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:30] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:30] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:30] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:48] "GET /inserir_dados/navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:23:53] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:23:53] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:53] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:53] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:53] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:23:55] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:23:55] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:55] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:55] "GET /inserir_dados/posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:23:56] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:56] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:56] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:23:56] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:00] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:01] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:01] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:02] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:03] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:03] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:03] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:03] "GET /static/img/teag.png HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:24:06] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:07] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:07] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:24:28] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:29] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:29] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:35] "GET /dashboard_posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:35] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:35] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:37] "GET /dashboard_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:37] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:37] "GET /static/css/consultar.css HTTP/1.1" 200 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:24:38] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:39] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:39] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:44] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:44] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:44] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:44] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:44] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:48] "GET /confiabilidade HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:50] "GET /dashboard_celulas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:53] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:53] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:54] "GET /static/plotly_graph.html HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:57] "GET /conferente_fiscal HTTP/1.1" 200 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:24:58] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:24:59] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:24:59] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:04] "GET /dashboard_posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:25:04] "GET /inserir_dados_celulas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:25:04] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:04] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:04] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:04] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:05] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:05] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:25:07] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:25:08] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:08] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:13] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:25:13] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:13] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:13] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:13] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:25:18] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:25:18] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:18] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:21] "GET /dashboard_celulas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:25:21] "GET /static/plotly_graph.html HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:25:21] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:21] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:35] "GET /dashboard_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:25:35] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:25:35] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:26:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:26:26] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:27:32] "GET /dashboard_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:27:32] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:27:33] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:27:36] "GET /dashboard_posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:27:36] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:27:36] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:27:39] "GET /edit_posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:27:39] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:27:39] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:27:41] "POST /delete_posicoes HTTP/1.1" 302 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:27:41] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:27:41] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:27:41] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:32] "GET /dashboard_posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:28:33] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:33] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:35] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:28:36] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:36] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:36] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:36] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:38] "GET /inserir_dados/posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:28:39] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:39] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:39] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:39] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:28:44] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:28:44] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:44] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:55] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:28:55] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:28:55] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:29:04] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:29:04] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:29:04] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:29:08] "GET /dashboard_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:29:11] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:29:11] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:29:21] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:29:29] "GET /dashboard_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:29:30] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:29:30] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:31:10] "GET /dashboard_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:31:11] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:31:11] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 22:32:58] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:32:58] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:32:58] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:35:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:35:05] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:35:17] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:35:18] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:35:18] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:35:18] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:35:18] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:38:42] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:38:42] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:38:43] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:38:43] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:38:43] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:38:45] "GET /conferente_fiscal HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:39:03] "GET /confiabilidade HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:39:16] "GET /conferente_fiscal HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:44:12] "GET /conferente_fiscal HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:44:23] "GET /conferente_fiscal HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:44:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:44:40] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:02] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:45:03] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:03] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:03] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:03] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:12] "GET /inserir_dados/navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:45:12] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:12] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:12] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:12] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:25] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 22:45:25] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:25] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:25] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 22:45:25] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+ * Detected change in '/workspaces/tegteag/app.py', reloading
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+Dados capturados para envio (movimentações): {'data': '2025-03-25', 'produto': 'Soja', 'empresa': 'CARGIL', 'toneladas_vagao': 6885000.0, 'toneladas_caminhao': 4500000.0, 'quantidade_vagoes': 75, 'quantidade_caminhoes': 100, 'tipo': 'Entrada', 'terminal': 'teg'}
+ * Restarting with stat
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+Traceback (most recent call last):
+  File "/workspaces/tegteag/app.py", line 516, in <module>
+    @app.route('/')
+     ^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 362, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: index
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.0.11.101:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+127.0.0.1 - - [25/Mar/2025 23:00:10] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:00:11] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:00:11] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:00:11] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:00:11] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+ * Detected change in '/workspaces/tegteag/app.py', reloading
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Restarting with stat
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+Traceback (most recent call last):
+  File "/workspaces/tegteag/app.py", line 516, in <module>
+    @app.route('/')
+     ^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 362, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: index
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+Traceback (most recent call last):
+  File "/workspaces/tegteag/app.py", line 516, in <module>
+    @app.route('/')
+     ^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 362, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: index
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+Traceback (most recent call last):
+  File "/workspaces/tegteag/app.py", line 516, in <module>
+    @app.route('/')
+     ^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 362, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: index
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+Traceback (most recent call last):
+  File "/workspaces/tegteag/app.py", line 516, in <module>
+    @app.route('/')
+     ^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 362, in decorator
+    self.add_url_rule(rule, endpoint, f, **options)
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/scaffold.py", line 47, in wrapper_func
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/sansio/app.py", line 657, in add_url_rule
+    raise AssertionError(
+AssertionError: View function mapping is overwriting an existing endpoint function: index
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.0.11.101:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+127.0.0.1 - - [25/Mar/2025 23:06:04] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:06:06] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:06:06] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:06:06] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:06:06] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:06:56] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:06:56] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:06:56] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:06:56] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:06:56] "GET /static/img/teag.png HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['quantidade_total'] = df['toneladas_vagao'] + df['toneladas_caminhao']
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:07:06] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:07:07] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:07] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:13] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:07:14] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:14] "GET /static/css/consultar.css HTTP/1.1" 200 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:07:30] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:07:30] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:30] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:35] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:07:36] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:36] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:36] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:36] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:52] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:07:52] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:52] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:52] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:07:52] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:08:27] "POST /chegadas HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/tegteag/app.py", line 161, in save_chegada
+    _, _, _, df_chegadas = load_data()
+ValueError: too many values to unpack (expected 4)
+127.0.0.1 - - [25/Mar/2025 23:08:28] "GET /chegadas?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:08:28] "GET /chegadas?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:08:28] "GET /chegadas?__debugger__=yes&cmd=resource&f=console.png&s=XJx8sMuKVR94zFj6FhN2 HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:08:28] "GET /chegadas?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Detected change in '/workspaces/tegteag/app.py', reloading
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+127.0.0.1 - - [25/Mar/2025 23:12:26] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:12:27] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:12:27] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:12:27] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:12:27] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:12:45] "POST /chegadas HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/tegteag/app.py", line 161, in save_chegada
+    _, _, _, df_chegadas = load_data()
+ValueError: too many values to unpack (expected 4)
+127.0.0.1 - - [25/Mar/2025 23:12:45] "GET /chegadas?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:12:46] "GET /chegadas?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:12:46] "GET /chegadas?__debugger__=yes&cmd=resource&f=console.png&s=rIhpaBwRL4n5SVPK2Db4 HTTP/1.1" 200 -
+ * Detected change in '/workspaces/tegteag/app.py', reloading
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+ * Detected change in '/workspaces/tegteag/app.py', reloading
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+127.0.0.1 - - [25/Mar/2025 23:13:05] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:13:07] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:13:07] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:07] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:07] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:07] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:14] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:13:14] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:14] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:14] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:14] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:16] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:13:17] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:17] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:17] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:17] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:43] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:13:43] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:43] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:43] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:13:43] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:14:00] "POST /chegadas HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/tegteag/app.py", line 161, in save_chegada
+    _, _, _, df_chegadas = load_data()
+ValueError: too many values to unpack (expected 4)
+127.0.0.1 - - [25/Mar/2025 23:14:00] "GET /chegadas?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:14:00] "GET /chegadas?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:14:01] "GET /chegadas?__debugger__=yes&cmd=resource&f=console.png&s=20gyI5oig7Y9HY73km2E HTTP/1.1" 200 -
+ * Detected change in '/workspaces/tegteag/app.py', reloading
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+127.0.0.1 - - [25/Mar/2025 23:18:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:18:11] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:18:12] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [25/Mar/2025 23:18:21] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:18:21] "GET /static/img/teag.png HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:18:21] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:18:21] "GET /static/css/inserir_dados.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:18:21] "GET /static/img/bandeira.png HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:19:33] "POST /movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:19:34] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:19:34] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:19:34] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:19:34] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:21:09] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:21:21] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:21:21] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:22:31] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:22:32] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:22:32] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:22:32] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:22:32] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:27:43] "POST /chegadas HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/tegteag/app.py", line 161, in save_chegada
+    _, _, _, df_chegadas = load_data()
+ValueError: too many values to unpack (expected 4)
+127.0.0.1 - - [25/Mar/2025 23:27:44] "GET /chegadas?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:27:44] "GET /chegadas?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:27:45] "GET /chegadas?__debugger__=yes&cmd=resource&f=console.png&s=NBbHS8pfqPPiuUnUt70c HTTP/1.1" 200 -
+ * Detected change in '/workspaces/tegteag/app.py', reloading
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+Dados capturados para envio (movimentações): {'data': '2025-03-25', 'produto': 'Acucar', 'empresa': 'Raizen', 'toneladas_vagao': 1300.0, 'toneladas_caminhao': 1000.0, 'quantidade_vagoes': 30, 'quantidade_caminhoes': 10, 'tipo': 'Entrada', 'terminal': 'teag'}
+ * Restarting with stat
+  File "/workspaces/tegteag/app.py", line 162
+    chegada = {
+IndentationError: unexpected indent
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.0.11.101:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+127.0.0.1 - - [25/Mar/2025 23:38:51] "GET /inserir_dados/posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:38:52] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:38:52] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:38:52] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:38:52] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:38:55] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:38:56] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:38:56] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:38:56] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:38:56] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:38:59] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:38:59] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:38:59] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:00] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:00] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:13] "POST /chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:39:14] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:14] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:14] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:14] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:20] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:39:21] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:21] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:21] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:21] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:24] "GET /inserir_dados_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:39:25] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:39:25] "GET /static/css/inserir_dados.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:39:25] "GET /static/img/bandeira.png HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:39:25] "GET /static/img/teag.png HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:39:27] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:39:27] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:27] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:27] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:27] "GET /static/img/teag.png HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['quantidade_total'] = df['toneladas_vagao'] + df['toneladas_caminhao']
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:39:34] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:39:35] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:35] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:46] "GET /dashboard_chegadas HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:39:47] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:39:47] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:40:04] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:40:05] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:05] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:17] "GET /dashboard_posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:40:18] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:18] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:40:22] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:40:22] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:22] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:29] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:40:31] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:31] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:31] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:31] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:34] "GET /inserir_dados/posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:40:34] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:34] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:34] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:34] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:40:54] "POST /posicoes HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1514, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.python/current/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspaces/tegteag/app.py", line 58, in save_posicoes
+    df_posicoes, _, _, _ = load_data()
+ValueError: too many values to unpack (expected 4)
+127.0.0.1 - - [25/Mar/2025 23:40:54] "GET /posicoes?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:40:54] "GET /posicoes?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:40:55] "GET /posicoes?__debugger__=yes&cmd=resource&f=console.png&s=h3AZ8hyl5CZoup8tDO2K HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:40:55] "GET /posicoes?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:41:05] "GET /inserir_dados/posicoes HTTP/1.1" 200 -
+ * Detected change in '/workspaces/tegteag/app.py', reloading
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+Chegada a ser salva: {'dataHora': '2025-03-25T20:29', 'quantidade': '42', 'produto': 'Milho', 'ferrovia': 'Rumo', 'empresa': 'LDC Terceiros'}
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+ * Detected change in '/workspaces/tegteag/app.py', reloading
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+ * Detected change in '/workspaces/tegteag/app.py', reloading
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+ * Detected change in '/workspaces/tegteag/app.py', reloading
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 272-658-725
+127.0.0.1 - - [25/Mar/2025 23:43:54] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:43:55] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:43:55] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:43:55] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:43:55] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:43:59] "GET /inserir_dados/posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:43:59] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:43:59] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:43:59] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:43:59] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:12] "POST /posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:44:12] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:12] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:12] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:12] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:37] "POST /posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:44:37] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:37] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:37] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:37] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:41] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:44:41] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:41] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:41] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:41] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:43] "GET /inserir_dados/posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:44:43] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:43] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:43] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:43] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:46] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:44:46] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:46] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:46] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:46] "GET /static/img/teag.png HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['quantidade_total'] = df['toneladas_vagao'] + df['toneladas_caminhao']
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:44:51] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:44:51] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:44:51] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:01] "GET /dashboard_posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:45:01] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:01] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:11] "GET /edit_posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:45:12] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:12] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:340: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '100' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:342: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '43' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+127.0.0.1 - - [25/Mar/2025 23:45:16] "POST /update_posicoes HTTP/1.1" 302 -
+127.0.0.1 - - [25/Mar/2025 23:45:17] "GET /dashboard_posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:45:17] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:17] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:21] "GET /dashboard_posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:45:21] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:21] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:24] "GET /edit_posicoes HTTP/1.1" 200 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:45:26] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:45:26] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:26] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:34] "GET /dashboard_posicoes HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:45:34] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:34] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:45:57] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:45:57] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:45:57] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:46:04] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:46:05] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:46:05] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:46:05] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:46:05] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:46:12] "GET /inserir_dados/navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:46:12] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:46:12] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:46:12] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:46:12] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:48:06] "POST /navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:48:07] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:48:07] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:48:07] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:48:07] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:48:11] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:48:12] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:48:12] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:48:54] "GET /dashboard_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:48:55] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:48:55] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:49:04] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:49:04] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:49:04] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:49:19] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:49:20] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:49:20] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:49:20] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:49:20] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:49:25] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:49:26] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:49:26] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:51:03] "GET /dashboard_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:51:04] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:51:04] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:51:27] "GET /edit_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:51:27] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:51:28] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:51:31] "POST /delete_navios HTTP/1.1" 302 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:51:32] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:51:32] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:51:32] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:51:49] "GET /dashboard_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:51:49] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:51:49] "GET /static/css/sidebar.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:52:09] "GET /edit_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:52:09] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:52:09] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:548: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '60500' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+
+/workspaces/tegteag/app.py:551: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value 'nan' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+
+127.0.0.1 - - [25/Mar/2025 23:52:26] "POST /update_navios HTTP/1.1" 302 -
+127.0.0.1 - - [25/Mar/2025 23:52:27] "GET /dashboard_navios HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:52:27] "GET /static/css/consultar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:52:27] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [25/Mar/2025 23:52:30] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [25/Mar/2025 23:52:30] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [25/Mar/2025 23:52:30] "GET /static/img/bandeira.png HTTP/1.1" 200 -
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.0.4.70:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 129-301-372
+127.0.0.1 - - [26/Mar/2025 18:00:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/Mar/2025 18:00:34] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:00:35] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [26/Mar/2025 18:01:39] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [26/Mar/2025 18:01:39] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:01:39] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:01:40] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:01:40] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['quantidade_total'] = df['toneladas_vagao'] + df['toneladas_caminhao']
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [26/Mar/2025 18:01:55] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [26/Mar/2025 18:01:58] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:01:58] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:02:16] "GET /dashboard_navios HTTP/1.1" 200 -
+127.0.0.1 - - [26/Mar/2025 18:02:16] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:02:16] "GET /static/css/consultar.css HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [26/Mar/2025 18:02:28] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [26/Mar/2025 18:02:28] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:02:28] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:02:50] "GET /inserir_dados HTTP/1.1" 200 -
+127.0.0.1 - - [26/Mar/2025 18:02:50] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:02:50] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:02:50] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:02:50] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [26/Mar/2025 18:03:02] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [26/Mar/2025 18:03:02] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:03:02] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:24:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/Mar/2025 18:24:20] "GET /static/css/login.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:24:21] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [26/Mar/2025 18:24:36] "POST /auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [26/Mar/2025 18:24:36] "GET /static/img/teag.png HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:24:36] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:24:37] "GET /static/css/inserir_dados.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:24:37] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+/workspaces/tegteag/app.py:239: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+
+127.0.0.1 - - [26/Mar/2025 18:24:49] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [26/Mar/2025 18:24:49] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [26/Mar/2025 18:24:49] "GET /static/img/bandeira.png HTTP/1.1" 304 -
+['Movimentação', 'Chegadas', 'Previsões de Vagoes', 'Posição de Veiculos', 'Células', 'Line Up', 'Embarque']
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.0.1.86:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 253-655-616
+127.0.0.1 - - [06/Apr/2025 15:54:52] "GET /dashboard_movimentacoes HTTP/1.1" 200 -
+127.0.0.1 - - [06/Apr/2025 15:54:53] "GET /static/css/sidebar.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Apr/2025 15:54:53] "GET /static/css/consultar.css HTTP/1.1" 304 -

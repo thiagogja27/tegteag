@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Células</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/consultar.css') }}" />
+</head>
+<body>
+    <h1>Células</h1>
+    <form id="form1" method="POST" action="{{ url_for('update_celulas') }}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Selecionar</th>
+                    <th>Data</th>
+                    <th>Capacidade</th>
+                    <th>Terminal</th>
+                    <th>Celula</th>
+                    <th>Produto</th>
+                    <th>Estoque Anterior</th>
+                    <th>Entrada</th>
+                    <th>Cutoff / Transf:</th>
+                    <th>Saída</th>
+                    <th>Estoque Final</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for celula in celulas %}
+                <tr>
+                    <td><input type="checkbox" name="delete_{{ loop.index0 }}"></td>
+                    <td><input type="text" name="data_{{ loop.index0 }}" value="{{ celula.data }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="text" name="capacidade_{{ loop.index0 }}" value="{{ celula.capacidade }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="text" name="terminal_{{ loop.index0 }}" value="{{ celula.terminal }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="text" name="celula_{{ loop.index0 }}" value="{{ celula.celula }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="text" name="produto_{{ loop.index0 }}" value="{{ celula.produto }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="number" name="estoque_anterior_{{ loop.index0 }}" value="{{ celula.estoque_anterior }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="number" name="entrada_{{ loop.index0 }}" value="{{ celula.entrada }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="number" name="cutoff_transf_{{ loop.index0 }}" value="{{ celula.cutoff_transf }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="number" name="saida_{{ loop.index0 }}" value="{{ celula.saida }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="number" name="estoque_final_{{ loop.index0 }}" value="{{ celula.estoque_final }}" {% if not editable %}readonly{% endif %}></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if editable %}
+            <button type="submit">Salvar</button>
+            <button type="submit" formaction="{{ url_for('delete_celulas') }}">Excluir Selecionados</button>
+        {% else %}
+            <a href="{{ url_for('edit_celulas') }}">Editar</a>
+        {% endif %}
+    </form>
+    <a href="{{ url_for('dashboard') }}">Voltar ao Dashboard</a>
+
+    <h2>Gráfico de Capacidade por Célula</h2>
+    <iframe src="{{ url_for('static', filename='plotly_graph.html') }}" width="100%" height="500px" frameborder="0"></iframe>
+    
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chegadas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/consultar.css') }}" />
+</head>
+<body>
+    <h1>Chegadas</h1>
+    <form id="form_chegadas" method="POST" action="{{ url_for('update_chegadas') }}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Selecionar</th>
+                    <th>Data/Hora</th>
+                    <th>Quantidade</th>
+                    <th>Produto</th>
+                    <th>Ferrovia</th>
+                    <th>Empresa</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for chegada in chegadas %}
+                <tr>
+                    <td><input type="checkbox" name="delete_{{ loop.index0 }}"></td>
+                    <td><input type="text" name="dataHora_{{ loop.index0 }}" value="{{ chegada.dataHora }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="number" name="quantidade_{{ loop.index0 }}" value="{{ chegada.quantidade }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="text" name="produto_{{ loop.index0 }}" value="{{ chegada.produto }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="text" name="ferrovia_{{ loop.index0 }}" value="{{ chegada.ferrovia }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="text" name="empresa_{{ loop.index0 }}" value="{{ chegada.empresa }}" {% if not editable %}readonly{% endif %}></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if editable %}
+            <button type="submit">Salvar</button>
+            <button type="submit" formaction="{{ url_for('delete_chegadas') }}">Excluir Selecionados</button>
+        {% else %}
+            <a href="{{ url_for('edit_chegadas') }}">Editar</a>
+        {% endif %}
+    </form>
+    <a href="{{ url_for('dashboard') }}">Voltar ao Dashboard</a>
+</body>
+</html>

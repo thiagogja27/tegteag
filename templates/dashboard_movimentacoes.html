@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimentações</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/consultar.css') }}" />
+</head>
+<body>
+    <h1>Movimentações</h1>
+    <form id="form_movimentacoes" method="POST" action="{{ url_for('update_movimentacoes') }}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Selecionar</th>
+                    <th>Data</th>
+                    <th>Produto</th>
+                    <th>Empresa</th>
+                    <th>Toneladas Vagão</th>
+                    <th>Toneladas Caminhão</th>
+                    <th>Quantidade Vagões</th>
+                    <th>Quantidade Caminhões</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for movimentacao in movimentacoes %}
+                <tr>
+                    <td><input type="checkbox" name="delete_{{ loop.index0 }}"></td>
+                    <td><input type="text" name="data_{{ loop.index0 }}" value="{{ movimentacao.data }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="text" name="produto_{{ loop.index0 }}" value="{{ movimentacao.produto }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="text" name="empresa_{{ loop.index0 }}" value="{{ movimentacao.empresa }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="number" name="toneladas_vagao_{{ loop.index0 }}" value="{{ movimentacao.toneladas_vagao }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="number" name="toneladas_caminhao_{{ loop.index0 }}" value="{{ movimentacao.toneladas_caminhao }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="number" name="quantidade_vagoes_{{ loop.index0 }}" value="{{ movimentacao.quantidade_vagoes }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="number" name="quantidade_caminhoes_{{ loop.index0 }}" value="{{ movimentacao.quantidade_caminhoes }}" {% if not editable %}readonly{% endif %}></td>
+                    <td><input type="text" name="tipo_{{ loop.index0 }}" value="{{ movimentacao.tipo }}" {% if not editable %}readonly{% endif %}></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if editable %}
+            <button type="submit">Salvar</button>
+            <button type="submit" formaction="{{ url_for('delete_movimentacoes') }}">Excluir Selecionados</button>
+        {% else %}
+            <a href="{{ url_for('edit_movimentacoes') }}">Editar</a>
+        {% endif %}
+    </form>
+    <a href="{{ url_for('dashboard') }}">Voltar ao Dashboard</a>
+</body>
+</html>
