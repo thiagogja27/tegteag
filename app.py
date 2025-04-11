@@ -240,9 +240,20 @@ def create_graphs(df):
     quantidade_por_produto = df.groupby('produto')['quantidade_total'].sum().reset_index()
 
     # Criar o gráfico interativo usando Plotly
-    fig_bar = px.bar(quantidade_por_produto, x='produto', y='quantidade_total', title='Quantidade por Produto', labels={'quantidade_total': 'Quantidade Total (Toneladas)'})
-    fig_bar.update_traces(marker=dict(color='rgba(100, 149, 237, 0.6)'), texttemplate='%{y}', textposition='outside')  # Cor azul clara
-    fig_bar.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', showlegend=True,
+    fig_bar = px.bar(
+        quantidade_por_produto,
+        x='produto', y='quantidade_total',
+        title='Quantidade por Produto',
+        labels={'quantidade_total': 'Quantidade Total (Toneladas)'})
+    fig_bar.update_traces(
+        marker=dict(color='rgba(100, 149, 237, 0.6)'),
+        texttemplate='%{y}',
+        textposition='outside')  # Cor azul clara
+    fig_bar.update_layout(
+        margin=dict(t=20),
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        showlegend=True,
                           font=dict(color='black'), title_font=dict(color='white'), legend_title_font=dict(color='black'))
     graph_bar_html = pio.to_html(fig_bar, full_html=False)
 
@@ -254,10 +265,31 @@ def create_graphs(df):
     total_por_empresa_produto = df.groupby(['empresa', 'produto'])['quantidade_total'].sum().reset_index()
 
     # Criar o gráfico de barras horizontais usando Plotly no lugar do gráfico de pizza
-    fig_horizontal_bar = px.bar(total_por_empresa_produto, x='quantidade_total', y='empresa', color='produto', orientation='h', title='Total por Empresa e Produto', labels={'quantidade_total': 'Quantidade Total (Toneladas)'})
-    fig_horizontal_bar.update_traces(marker=dict(line=dict(color='rgba(100, 149, 237, 0.6)')), texttemplate='%{x}', textposition='outside')  # Cor azul clara
-    fig_horizontal_bar.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', showlegend=True,
-                                     font=dict(color='black'), title_font=dict(color='black'), legend_title_font=dict(color='black'))
+    fig_horizontal_bar = px.bar(
+    total_por_empresa_produto, x='quantidade_total',
+    y='empresa', color='produto', orientation='h',
+    title='Total por Empresa e Produto',
+    labels={'quantidade_total': 'Quantidade Total (Toneladas)'})
+
+    fig_horizontal_bar.update_traces(
+    marker=dict(line=dict(color='rgba(100, 149, 237, 0.6)')),
+    texttemplate='%{x}',
+    textposition='auto'  # <- Plotly decide se o texto vai dentro ou fora
+)
+
+    fig_horizontal_bar.update_layout(
+    width=500,
+    height=400,
+    margin=dict(r=1),
+    plot_bgcolor='rgba(0,0,0,0)',
+    paper_bgcolor='rgba(0,0,0,0)',
+    showlegend=True,
+    font=dict(color='black'),
+    title_font=dict(color='black'),
+    legend_title_font=dict(color='black')
+)
+    
+
     graph_horizontal_bar_html = pio.to_html(fig_horizontal_bar, full_html=False)
 
     return graph_bar_html, graph_horizontal_bar_html
@@ -265,9 +297,19 @@ def create_graphs(df):
 
 # Função para criar gráficos de barras horizontais para células
 def create_celula_graphs(df):
-    fig_celulas = px.bar(df.copy(), x='estoque_final', y='celula', color='produto', orientation='h', title='Estoque Final por Célula e Produto', labels={'estoque_final': 'Estoque Final (Unidades)'})
-    fig_celulas.update_traces(marker=dict(line=dict(color='rgba(100, 149, 237, 0.6)')), texttemplate='%{x}', textposition='outside')  # Cor azul clara
-    fig_celulas.update_layout(plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
+    fig_celulas = px.bar(
+        df.copy(), x='estoque_final', y='celula', color='produto',
+        orientation='h', title='Estoque Final por Célula e Produto',
+        labels={'estoque_final': 'Estoque Final (Unidades)'})
+    fig_celulas.update_traces(
+        marker=dict(line=dict(color='rgba(100, 149, 237, 0.6)')),
+        texttemplate='%{x}',
+        textposition='auto') 
+     # Cor azul clara
+    fig_celulas.update_layout(
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)')
+    
     graph_celulas_html = pio.to_html(fig_celulas, full_html=False)
     
     return graph_celulas_html
